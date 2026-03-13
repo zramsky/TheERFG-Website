@@ -74,10 +74,9 @@ export default function ContactForm() {
   if (isSuccess) {
     return (
       <div className="text-center py-8">
-        <h3 className="text-2xl font-bold text-accent mb-2.5 font-serif">Thank You!</h3>
+        <h3 className="text-2xl font-bold text-accent mb-2.5 font-serif">Received.</h3>
         <p className="text-white/60">
-          We'll reach out within 24 business hours to schedule a time that works
-          for you.
+          We will be in touch within one business day.
         </p>
       </div>
     );
@@ -92,7 +91,7 @@ export default function ContactForm() {
   return (
     <div>
       <h3 className="text-xl font-bold text-white mb-7 font-serif">
-        Schedule Your Consultation
+        Get In Touch
       </h3>
       <form onSubmit={handleSubmit}>
         {/* Honeypot for spam protection */}
@@ -193,7 +192,7 @@ export default function ContactForm() {
             id="message"
             name="message"
             required
-            placeholder="What challenges are you facing with your financial operations?"
+            placeholder="Briefly describe your business and what you need help with."
             className={`${inputClasses} resize-y min-h-[110px]`}
           />
         </div>
@@ -209,9 +208,9 @@ export default function ContactForm() {
           disabled={isSubmitting}
           className="w-full py-4 mt-2 bg-accent text-[#141414] rounded-lg font-semibold text-base border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
         >
-          {isSubmitting ? 'Sending...' : 'Schedule Your Consultation'}
+          {isSubmitting ? 'Sending...' : 'Get In Touch'}
         </button>
-        <p className="text-sm text-white/40 text-center mt-4">We'll reach out within 24 business hours to schedule a time that works for you.</p>
+        <p className="text-sm text-white/40 text-center mt-4">We will respond within one business day.</p>
       </form>
     </div>
   );

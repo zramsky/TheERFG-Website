@@ -1,21 +1,24 @@
 ---
 import LucideIcon from './LucideIcon';
 
-const testimonials = [
+const differentiators = [
   {
-    quote:
-      'Engine Room took the chaos out of our operations. We finally understand our numbers, and the team treats our business like it\u2019s their own.',
-    attribution: 'Director, Multi-Location Childcare Chain',
+    icon: 'Settings' as const,
+    title: 'Operator-Run',
+    description:
+      'We are operators who build and run financial infrastructure. Not consultants. Not advisors. We do the work, every day, alongside your team.',
   },
   {
-    quote:
-      'We\u2019re a growing senior living operator. Having a financial team that understands our regulatory environment and growth trajectory has been invaluable.',
-    attribution: 'Executive Director, Senior Living Community',
+    icon: 'Target' as const,
+    title: 'Industry-Specific',
+    description:
+      'Our processes are built around the billing cycles, compliance requirements, and operational patterns of the industries we serve. No generic playbooks.',
   },
   {
-    quote:
-      'This isn\u2019t a vendor relationship\u2014it\u2019s a partnership. They proactively identify issues and opportunities that improve our bottom line.',
-    attribution: 'Owner, Plumbing & HVAC Services',
+    icon: 'Shield' as const,
+    title: 'Single Point of Accountability',
+    description:
+      'One team owns your entire financial operation. AP, AR, payroll, reporting — all under one roof with direct access to the people doing the work.',
   },
 ];
 ---
@@ -27,14 +30,14 @@ const testimonials = [
         class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3"
         data-anim="fade-up"
       >
-        Testimonials
+        Why Us
       </p>
       <h2
         class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
         data-anim="fade-up"
         style="transition-delay: 100ms"
       >
-        Operationally Sharp. Relationship-Based.
+        What Sets Us Apart
       </h2>
       <div class="w-16 h-[3px] bg-accent mx-auto mb-4 divider-animate"></div>
       <p
@@ -42,33 +45,30 @@ const testimonials = [
         data-anim="fade-up"
         style="transition-delay: 200ms"
       >
-        We believe that financial operations should be both dependable and personal. Your success is our success.
+        Three principles that define how we operate.
       </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" data-stagger>
       {
-        testimonials.map((t) => (
+        differentiators.map((d) => (
           <div
             class="bg-card-bg rounded-xl p-9 border border-card-border transition-all duration-300 hover:border-accent/50 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)] card-glow card-tilt"
             data-anim="fade-up"
           >
-            <div class="text-5xl text-accent mb-1 leading-none font-serif">
-              &ldquo;
+            <div class="w-[60px] h-[60px] bg-accent/15 rounded-[14px] flex items-center justify-center mb-4">
+              <LucideIcon
+                name={d.icon}
+                size={28}
+                className="text-accent"
+              />
             </div>
-            <div class="flex gap-0.5 mb-3">
-              <LucideIcon name="Star" size={14} className="text-accent fill-accent" />
-              <LucideIcon name="Star" size={14} className="text-accent fill-accent" />
-              <LucideIcon name="Star" size={14} className="text-accent fill-accent" />
-              <LucideIcon name="Star" size={14} className="text-accent fill-accent" />
-              <LucideIcon name="Star" size={14} className="text-accent fill-accent" />
-            </div>
-            <p class="text-base text-white/60 leading-relaxed mb-6 italic">
-              {t.quote}
+            <h3 class="text-lg font-bold text-white mb-2.5 font-serif">
+              {d.title}
+            </h3>
+            <p class="text-[0.95rem] text-white/60 leading-relaxed">
+              {d.description}
             </p>
-            <div class="text-sm font-bold text-accent tracking-[0.01em]">
-              {t.attribution}
-            </div>
           </div>
         ))
       }

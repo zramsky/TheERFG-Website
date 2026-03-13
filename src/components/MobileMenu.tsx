@@ -98,7 +98,7 @@ export default function MobileMenu() {
             onClick={closeMenu}
             className="inline-block text-center mt-2 px-8 py-3.5 bg-accent text-[#141414] rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover no-underline transition-all duration-250"
           >
-            Schedule a Call
+            Get In Touch
           </a>
         </div>
       )}

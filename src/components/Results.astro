@@ -1,37 +1,30 @@
 ---
 import LucideIcon from './LucideIcon';
 
-const stats = [
-  { value: 500, suffix: '+', label: 'Clients Served' },
-  { value: 98, suffix: '%', label: 'Client Retention' },
-  { value: 24, suffix: 'hr', label: 'Response Time' },
-  { value: 15, suffix: '+', label: 'Years Experience' },
-];
-
 const results = [
   {
     icon: 'BarChart3' as const,
-    title: 'Clarity at a Glance',
+    title: 'Financial Clarity',
     description:
-      'Know exactly where you stand financially every month. No surprises. No confusion. Just clean, accurate reporting that drives better decisions.',
+      'Clean, accurate financials delivered on schedule. Month-end close, reporting packages, and dashboards that give you a clear picture of where the business stands.',
   },
   {
     icon: 'Clock' as const,
-    title: 'More Time for Growth',
+    title: 'Operational Bandwidth',
     description:
-      'Stop worrying about payroll, invoicing, and tax compliance. Focus on what you do best: running your business and serving your clients.',
+      'Payroll, invoicing, tax compliance, and vendor management handled completely. Your leadership team focuses on revenue and operations, not back-office fires.',
   },
   {
     icon: 'TrendingUp' as const,
     title: 'Scalable Infrastructure',
     description:
-      'Whether you\u2019re one location or twenty, our systems and processes scale with you. No growing pains. Just reliable financial operations.',
+      'Systems and processes built to handle growth. One location or twenty — the financial infrastructure scales without adding headcount or complexity.',
   },
   {
     icon: 'Handshake' as const,
-    title: 'Built on Trust',
+    title: 'Direct Access',
     description:
-      'We\u2019re not just vendors\u2014we\u2019re partners invested in your success. Open communication, honest advice, and long-term commitment to your growth.',
+      'No ticketing systems. No account managers relaying messages. You work directly with the team running your books. Questions get answered the same day.',
   },
 ];
 ---
@@ -53,32 +46,6 @@ const results = [
         What You Get
       </h2>
       <div class="w-16 h-[3px] bg-accent mx-auto mb-4 divider-animate"></div>
-    </div>
-
-    <!-- Animated Counters -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-      {
-        stats.map((stat, i) => (
-          <div
-            class="text-center py-6 px-4 rounded-xl bg-card-bg border border-card-border"
-            data-anim="scale-in"
-            style={`transition-delay: ${i * 100}ms`}
-          >
-            <div class="text-3xl md:text-4xl font-extrabold text-accent mb-1 font-sans">
-              <span
-                class="counter-value"
-                data-count={stat.value}
-                data-suffix={stat.suffix}
-              >
-                0{stat.suffix}
-              </span>
-            </div>
-            <div class="text-sm text-white/50 font-medium uppercase tracking-wider">
-              {stat.label}
-            </div>
-          </div>
-        ))
-      }
     </div>
 
     <div
