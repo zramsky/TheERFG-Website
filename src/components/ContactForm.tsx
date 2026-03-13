@@ -74,8 +74,8 @@ export default function ContactForm() {
   if (isSuccess) {
     return (
       <div className="text-center py-8">
-        <h3 className="text-2xl font-bold text-accent mb-2.5">Thank You!</h3>
-        <p className="text-slate-400">
+        <h3 className="text-2xl font-bold text-accent mb-2.5 font-serif">Thank You!</h3>
+        <p className="text-white/60">
           We'll reach out within 24 business hours to schedule a time that works
           for you.
         </p>
@@ -84,11 +84,11 @@ export default function ContactForm() {
   }
 
   const inputClasses =
-    'w-full px-4 py-3 border-[1.5px] border-slate-200 rounded-lg text-[0.95rem] text-slate-800 bg-slate-50 transition-all duration-200 focus:outline-none focus:border-accent focus:bg-white focus:ring-[3px] focus:ring-accent/10';
+    'w-full px-4 py-3 border-[1.5px] border-white/15 rounded-lg text-[0.95rem] text-white bg-[#2a2a2a] transition-all duration-200 focus:outline-none focus:border-accent focus:bg-[#333333] focus:ring-[3px] focus:ring-accent/10 placeholder:text-white/30';
 
   return (
     <div>
-      <h3 className="text-xl font-bold text-slate-900 mb-7">
+      <h3 className="text-xl font-bold text-white mb-7 font-serif">
         Schedule Your Consultation
       </h3>
       <form onSubmit={handleSubmit}>
@@ -100,7 +100,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="name"
-            className="block text-sm font-semibold text-slate-600 mb-1.5"
+            className="block text-sm font-semibold text-white/70 mb-1.5"
           >
             Full Name
           </label>
@@ -117,7 +117,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="email"
-            className="block text-sm font-semibold text-slate-600 mb-1.5"
+            className="block text-sm font-semibold text-white/70 mb-1.5"
           >
             Email Address
           </label>
@@ -134,7 +134,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="company"
-            className="block text-sm font-semibold text-slate-600 mb-1.5"
+            className="block text-sm font-semibold text-white/70 mb-1.5"
           >
             Company Name
           </label>
@@ -151,7 +151,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="industry"
-            className="block text-sm font-semibold text-slate-600 mb-1.5"
+            className="block text-sm font-semibold text-white/70 mb-1.5"
           >
             Industry
           </label>
@@ -176,7 +176,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="message"
-            className="block text-sm font-semibold text-slate-600 mb-1.5"
+            className="block text-sm font-semibold text-white/70 mb-1.5"
           >
             Tell Us About Your Business
           </label>
@@ -190,7 +190,7 @@ export default function ContactForm() {
         </div>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+          <div className="mb-4 p-3 bg-red-900/30 border border-red-500/30 rounded-lg text-red-300 text-sm">
             {error}
           </div>
         )}
@@ -198,7 +198,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-4 mt-2 bg-accent text-white rounded-lg font-semibold text-base border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(59,130,246,0.35)] transition-all duration-250 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
+          className="w-full py-4 mt-2 bg-accent text-white rounded-lg font-semibold text-base border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
         >
           {isSubmitting ? 'Sending...' : 'Schedule Your Consultation'}
         </button>

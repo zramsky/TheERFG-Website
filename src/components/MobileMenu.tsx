@@ -40,17 +40,17 @@ export default function MobileMenu() {
         onClick={() => setIsOpen(!isOpen)}
       >
         <span
-          className={`block w-[22px] h-[2px] bg-slate-800 rounded-sm transition-all duration-300 ${
+          className={`block w-[22px] h-[2px] bg-white rounded-sm transition-all duration-300 ${
             isOpen ? 'rotate-45 translate-y-[7px]' : ''
           }`}
         />
         <span
-          className={`block w-[22px] h-[2px] bg-slate-800 rounded-sm transition-all duration-300 ${
+          className={`block w-[22px] h-[2px] bg-white rounded-sm transition-all duration-300 ${
             isOpen ? 'opacity-0' : ''
           }`}
         />
         <span
-          className={`block w-[22px] h-[2px] bg-slate-800 rounded-sm transition-all duration-300 ${
+          className={`block w-[22px] h-[2px] bg-white rounded-sm transition-all duration-300 ${
             isOpen ? '-rotate-45 -translate-y-[7px]' : ''
           }`}
         />
@@ -60,14 +60,14 @@ export default function MobileMenu() {
       {isOpen && (
         <div
           ref={menuRef}
-          className="fixed top-[76px] left-0 right-0 bg-white border-b border-slate-200 p-6 z-[999] flex flex-col gap-3 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+          className="fixed top-[76px] left-0 right-0 bg-[#1e1e1e] border-b border-white/[0.08] p-6 z-[999] flex flex-col gap-3 shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
         >
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={closeMenu}
-              className="text-base font-medium text-slate-600 py-2.5 border-b border-slate-100 no-underline hover:text-primary"
+              className="text-base font-medium text-white/70 py-2.5 border-b border-white/[0.08] no-underline hover:text-accent"
             >
               {link.label}
             </a>

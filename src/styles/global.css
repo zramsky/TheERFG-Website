@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1B3A5C;
-  --color-primary-dark: #122840;
-  --color-primary-light: #2A5080;
-  --color-accent: #3B82F6;
-  --color-accent-hover: #2563EB;
-  --color-accent-light: #EFF6FF;
-  --color-accent-subtle: #DBEAFE;
-  --color-gold: #D4A853;
-  --color-off-white: #F7F9FC;
+  --color-primary: #C87533;
+  --color-primary-dark: #141414;
+  --color-primary-light: #D4953D;
+  --color-accent: #C87533;
+  --color-accent-hover: #D4953D;
+  --color-accent-light: rgba(200, 117, 51, 0.12);
+  --color-accent-subtle: rgba(200, 117, 51, 0.08);
+  --color-gold: #C87533;
+  --color-off-white: #1a1a1a;
+  --color-page-bg: #141414;
+  --color-card-bg: #1e1e1e;
+  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-input-bg: #2a2a2a;
+  --color-input-border: rgba(255, 255, 255, 0.15);
+  --color-muted: rgba(255, 255, 255, 0.6);
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 
 /* Base styles */
@@ -23,4 +30,10 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-page-bg);
+  color: #ffffff;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
 }

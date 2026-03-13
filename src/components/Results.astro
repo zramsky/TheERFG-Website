@@ -29,17 +29,18 @@ const results = [
 ];
 ---
 
-<section class="py-24 px-6 bg-off-white" id="results">
+<section class="py-24 px-6 bg-page-bg" id="results">
   <div class="max-w-[1200px] mx-auto">
     <div class="text-center mb-14">
       <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
         Results
       </p>
       <h2
-        class="text-[1.85rem] md:text-[2.5rem] font-extrabold text-slate-900 mb-4 leading-tight tracking-tight"
+        class="text-[1.85rem] md:text-[2.5rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
       >
         What You Get
       </h2>
+      <div class="w-16 h-[3px] bg-accent mx-auto mb-4"></div>
     </div>
 
     <div
@@ -47,18 +48,18 @@ const results = [
     >
       {
         results.map((result) => (
-          <div class="text-center p-9 px-6 rounded-xl bg-white border border-slate-200 transition-all duration-250 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:-translate-y-0.5">
-            <div class="w-[60px] h-[60px] bg-accent-light rounded-[14px] flex items-center justify-center mx-auto mb-4">
+          <div class="text-center p-9 px-6 rounded-xl bg-card-bg border border-card-border transition-all duration-250 hover:border-accent/30 hover:-translate-y-0.5">
+            <div class="w-[60px] h-[60px] bg-accent/15 rounded-[14px] flex items-center justify-center mx-auto mb-4">
               <LucideIcon
                 name={result.icon}
                 size={28}
                 className="text-accent"
               />
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2.5">
+            <h3 class="text-lg font-bold text-white mb-2.5 font-serif">
               {result.title}
             </h3>
-            <p class="text-sm text-slate-400 leading-relaxed">
+            <p class="text-sm text-white/60 leading-relaxed">
               {result.description}
             </p>
           </div>
