@@ -1,0 +1,52 @@
+---
+const testimonials = [
+  {
+    quote:
+      'Engine Room took the chaos out of our operations. We finally understand our numbers, and the team treats our business like it\u2019s their own.',
+    attribution: 'Director, Multi-Location Childcare Chain',
+  },
+  {
+    quote:
+      'We\u2019re a growing senior living operator. Having a financial team that understands our regulatory environment and growth trajectory has been invaluable.',
+    attribution: 'Executive Director, Senior Living Community',
+  },
+  {
+    quote:
+      'This isn\u2019t a vendor relationship\u2014it\u2019s a partnership. They proactively identify issues and opportunities that improve our bottom line.',
+    attribution: 'Owner, Plumbing & HVAC Services',
+  },
+];
+---
+
+<section class="py-24 px-6 bg-white" id="testimonials">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-14">
+      <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
+        Testimonials
+      </p>
+      <h2
+        class="text-[1.85rem] md:text-[2.5rem] font-extrabold text-slate-900 mb-4 leading-tight tracking-tight"
+      >
+        Operationally Sharp. Relationship-Based.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {
+        testimonials.map((t) => (
+          <div class="bg-white rounded-xl p-9 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] border border-slate-200 transition-all duration-250 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:-translate-y-0.5">
+            <div class="text-5xl text-accent mb-1 leading-none font-serif">
+              &ldquo;
+            </div>
+            <p class="text-[0.95rem] text-slate-500 leading-relaxed mb-6 italic">
+              {t.quote}
+            </p>
+            <div class="text-sm font-bold text-primary tracking-[0.01em]">
+              {t.attribution}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

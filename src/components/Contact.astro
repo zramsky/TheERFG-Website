@@ -1,0 +1,101 @@
+---
+import LucideIcon from './LucideIcon';
+import ContactForm from './ContactForm';
+---
+
+<section class="py-24 px-6 bg-white" id="contact">
+  <div class="max-w-[1200px] mx-auto">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-start"
+    >
+      <!-- Contact Info -->
+      <div>
+        <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
+          Contact
+        </p>
+        <h2
+          class="text-[1.85rem] md:text-[2.5rem] font-extrabold text-slate-900 mb-4 leading-tight tracking-tight"
+        >
+          Ready for a Financial Backbone That Just Works?
+        </h2>
+        <p class="text-slate-400 mb-9 leading-relaxed">
+          Prefer to connect another way? Reach out directly and we'll get back
+          to you within 24 business hours.
+        </p>
+
+        <div class="flex flex-col gap-6">
+          <div class="flex items-start gap-4">
+            <div
+              class="w-11 h-11 bg-accent-light rounded-xl flex items-center justify-center shrink-0"
+            >
+              <LucideIcon name="Mail" size={20} className="text-accent" />
+            </div>
+            <div>
+              <div
+                class="text-xs text-slate-300 uppercase tracking-[1px] font-semibold mb-0.5"
+              >
+                Email
+              </div>
+              <div class="text-[0.95rem] text-slate-800 font-medium">
+                <a
+                  href="mailto:contact@TheERFG.com"
+                  class="hover:text-accent transition-colors"
+                >
+                  contact@TheERFG.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div
+              class="w-11 h-11 bg-accent-light rounded-xl flex items-center justify-center shrink-0"
+            >
+              <LucideIcon name="Phone" size={20} className="text-accent" />
+            </div>
+            <div>
+              <div
+                class="text-xs text-slate-300 uppercase tracking-[1px] font-semibold mb-0.5"
+              >
+                Phone
+              </div>
+              <div class="text-[0.95rem] text-slate-800 font-medium">
+                <a
+                  href="tel:6464506051"
+                  class="hover:text-accent transition-colors"
+                >
+                  646-450-6051
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div
+              class="w-11 h-11 bg-accent-light rounded-xl flex items-center justify-center shrink-0"
+            >
+              <LucideIcon name="MapPin" size={20} className="text-accent" />
+            </div>
+            <div>
+              <div
+                class="text-xs text-slate-300 uppercase tracking-[1px] font-semibold mb-0.5"
+              >
+                Address
+              </div>
+              <div class="text-[0.95rem] text-slate-800 font-medium">
+                456A Central Ave Suite 115, Cedarthurst, NY 11516
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div
+        class="bg-white rounded-2xl p-10 shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-100"
+      >
+        <ContactForm client:load />
+      </div>
+    </div>
+  </div>
+</section>

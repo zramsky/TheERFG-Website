@@ -1,0 +1,109 @@
+---
+import LucideIcon from './LucideIcon';
+
+const industries = [
+  {
+    icon: 'School' as const,
+    title: 'Childcare Centers',
+    items: [
+      'Reliable staff payroll and state subsidy management',
+      'Clear cash flow visibility across multiple locations',
+    ],
+  },
+  {
+    icon: 'Hospital' as const,
+    title: 'Skilled Nursing Facilities',
+    items: [
+      'Insurance and government payer reconciliation',
+      'Compliance-ready financial reporting',
+    ],
+  },
+  {
+    icon: 'Home' as const,
+    title: 'Assisted Living Communities',
+    items: [
+      'Resident billing and private pay management',
+      'Predictable operational financials',
+    ],
+  },
+  {
+    icon: 'Building2' as const,
+    title: 'Senior Living Facilities',
+    items: [
+      'Multi-level care billing and accounting',
+      'Transparent financial operations',
+    ],
+  },
+  {
+    icon: 'Puzzle' as const,
+    title: 'ABA Companies',
+    items: [
+      'Insurance claim management and AR optimization',
+      'Multi-location staff payroll accuracy',
+    ],
+  },
+  {
+    icon: 'Truck' as const,
+    title: 'Junk Removal Companies',
+    items: [
+      'Field operations invoice management',
+      'Same-day and recurring revenue tracking',
+    ],
+  },
+  {
+    icon: 'Wrench' as const,
+    title: 'Plumbing & Trades',
+    items: [
+      'Project-based accounting and job costing',
+      'Equipment and inventory management',
+    ],
+  },
+];
+---
+
+<section class="py-24 px-6 bg-white" id="industries">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-14">
+      <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
+        Who We Serve
+      </p>
+      <h2
+        class="text-[1.85rem] md:text-[2.5rem] font-extrabold text-slate-900 mb-4 leading-tight tracking-tight"
+      >
+        Built for Real Operators
+      </h2>
+      <p class="text-lg text-slate-400 max-w-[640px] mx-auto leading-relaxed">
+        We serve childcare centers, skilled nursing facilities, assisted living
+        communities, senior living facilities, ABA companies, junk removal
+        companies, plumbing companies, and other multi-location and
+        service-based businesses.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {
+        industries.map((industry) => (
+          <div class="bg-white border border-slate-200 rounded-xl p-7 transition-all duration-250 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:border-accent hover:-translate-y-0.5">
+            <h3 class="text-lg font-bold text-slate-900 mb-3.5 flex items-center gap-3">
+              <span class="w-10 h-10 bg-accent-light rounded-[10px] flex items-center justify-center shrink-0">
+                <LucideIcon
+                  name={industry.icon}
+                  size={20}
+                  className="text-accent"
+                />
+              </span>
+              {industry.title}
+            </h3>
+            <ul class="space-y-1">
+              {industry.items.map((item) => (
+                <li class="text-sm text-slate-400 pl-[22px] relative leading-relaxed py-1 before:content-[''] before:absolute before:left-0 before:top-[13px] before:w-1.5 before:h-1.5 before:bg-accent before:rounded-full">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
