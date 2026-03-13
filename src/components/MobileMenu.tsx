@@ -81,7 +81,7 @@ export default function MobileMenu() {
       {isOpen && (
         <div
           ref={menuRef}
-          className="fixed top-[76px] left-0 right-0 bg-[#1e1e1e] border-b border-white/[0.08] p-6 z-[999] flex flex-col gap-3 shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+          className="fixed top-[140px] left-0 right-0 bg-[#1e1e1e] border-b border-white/[0.08] p-6 z-[999] flex flex-col gap-3 shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
         >
           {links.map((link) => (
             <a

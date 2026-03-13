@@ -22,25 +22,37 @@ const testimonials = [
 
 <section class="py-20 px-6 bg-[#1a1a1a]" id="testimonials">
   <div class="max-w-[1200px] mx-auto">
-    <div class="text-center mb-14" data-animate>
-      <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
+    <div class="text-center mb-14">
+      <p
+        class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3"
+        data-anim="fade-up"
+      >
         Testimonials
       </p>
       <h2
         class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+        data-anim="fade-up"
+        style="transition-delay: 100ms"
       >
         Operationally Sharp. Relationship-Based.
       </h2>
-      <div class="w-16 h-[3px] bg-accent mx-auto mb-4"></div>
-      <p class="text-xl text-white/60 max-w-[640px] mx-auto leading-relaxed">
+      <div class="w-16 h-[3px] bg-accent mx-auto mb-4 divider-animate"></div>
+      <p
+        class="text-xl text-white/60 max-w-[640px] mx-auto leading-relaxed"
+        data-anim="fade-up"
+        style="transition-delay: 200ms"
+      >
         We believe that financial operations should be both dependable and personal. Your success is our success.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" data-stagger>
       {
         testimonials.map((t) => (
-          <div class="bg-card-bg rounded-xl p-9 border border-card-border transition-all duration-250 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)]">
+          <div
+            class="bg-card-bg rounded-xl p-9 border border-card-border transition-all duration-300 hover:border-accent/50 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)] card-glow card-tilt"
+            data-anim="fade-up"
+          >
             <div class="text-5xl text-accent mb-1 leading-none font-serif">
               &ldquo;
             </div>

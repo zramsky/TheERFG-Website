@@ -1,6 +1,13 @@
 ---
 import LucideIcon from './LucideIcon';
 
+const stats = [
+  { value: 500, suffix: '+', label: 'Clients Served' },
+  { value: 98, suffix: '%', label: 'Client Retention' },
+  { value: 24, suffix: 'hr', label: 'Response Time' },
+  { value: 15, suffix: '+', label: 'Years Experience' },
+];
+
 const results = [
   {
     icon: 'BarChart3' as const,
@@ -31,24 +38,59 @@ const results = [
 
 <section class="py-20 px-6 bg-page-bg border-t border-white/[0.05]" id="results">
   <div class="max-w-[1200px] mx-auto">
-    <div class="text-center mb-14" data-animate>
-      <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
+    <div class="text-center mb-14">
+      <p
+        class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3"
+        data-anim="fade-up"
+      >
         Results
       </p>
       <h2
         class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+        data-anim="fade-up"
+        style="transition-delay: 100ms"
       >
         What You Get
       </h2>
-      <div class="w-16 h-[3px] bg-accent mx-auto mb-4"></div>
+      <div class="w-16 h-[3px] bg-accent mx-auto mb-4 divider-animate"></div>
+    </div>
+
+    <!-- Animated Counters -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+      {
+        stats.map((stat, i) => (
+          <div
+            class="text-center py-6 px-4 rounded-xl bg-card-bg border border-card-border"
+            data-anim="scale-in"
+            style={`transition-delay: ${i * 100}ms`}
+          >
+            <div class="text-3xl md:text-4xl font-extrabold text-accent mb-1 font-sans">
+              <span
+                class="counter-value"
+                data-count={stat.value}
+                data-suffix={stat.suffix}
+              >
+                0{stat.suffix}
+              </span>
+            </div>
+            <div class="text-sm text-white/50 font-medium uppercase tracking-wider">
+              {stat.label}
+            </div>
+          </div>
+        ))
+      }
     </div>
 
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6"
+      data-stagger
     >
       {
         results.map((result) => (
-          <div class="text-center p-9 px-6 rounded-xl bg-card-bg border border-card-border transition-all duration-250 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)]">
+          <div
+            class="text-center p-9 px-6 rounded-xl bg-card-bg border border-card-border transition-all duration-300 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)] card-glow"
+            data-anim="fade-up"
+          >
             <div class="w-[60px] h-[60px] bg-accent/15 rounded-[14px] flex items-center justify-center mx-auto mb-4">
               <LucideIcon
                 name={result.icon}

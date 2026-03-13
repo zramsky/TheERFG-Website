@@ -1,79 +1,29 @@
 ---
-import LucideIcon from './LucideIcon';
-
-const industries = [
-  {
-    icon: 'School' as const,
-    title: 'Childcare Centers',
-    items: [
-      'Reliable staff payroll and state subsidy management',
-      'Clear cash flow visibility across multiple locations',
-    ],
-  },
-  {
-    icon: 'Hospital' as const,
-    title: 'Skilled Nursing Facilities',
-    items: [
-      'Insurance and government payer reconciliation',
-      'Compliance-ready financial reporting',
-    ],
-  },
-  {
-    icon: 'Home' as const,
-    title: 'Assisted Living Communities',
-    items: [
-      'Resident billing and private pay management',
-      'Predictable operational financials',
-    ],
-  },
-  {
-    icon: 'Building2' as const,
-    title: 'Senior Living Facilities',
-    items: [
-      'Multi-level care billing and accounting',
-      'Transparent financial operations',
-    ],
-  },
-  {
-    icon: 'Puzzle' as const,
-    title: 'ABA Companies',
-    items: [
-      'Insurance claim management and AR optimization',
-      'Multi-location staff payroll accuracy',
-    ],
-  },
-  {
-    icon: 'Truck' as const,
-    title: 'Junk Removal Companies',
-    items: [
-      'Field operations invoice management',
-      'Same-day and recurring revenue tracking',
-    ],
-  },
-  {
-    icon: 'Wrench' as const,
-    title: 'Plumbing & Trades',
-    items: [
-      'Project-based accounting and job costing',
-      'Equipment and inventory management',
-    ],
-  },
-];
+import IndustriesAccordion from './IndustriesAccordion';
 ---
 
 <section class="py-20 px-6 bg-page-bg border-t border-white/[0.05]" id="industries">
-  <div class="max-w-[1200px] mx-auto" data-animate>
+  <div class="max-w-[1200px] mx-auto">
     <div class="text-center mb-14">
-      <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
+      <p
+        class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3"
+        data-anim="fade-up"
+      >
         Who We Serve
       </p>
       <h2
         class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+        data-anim="fade-up"
+        style="transition-delay: 100ms"
       >
         Built for Real Operators
       </h2>
-      <div class="w-16 h-[3px] bg-accent mx-auto mb-4"></div>
-      <p class="text-xl text-white/60 max-w-[640px] mx-auto leading-relaxed">
+      <div class="w-16 h-[3px] bg-accent mx-auto mb-4 divider-animate"></div>
+      <p
+        class="text-xl text-white/60 max-w-[640px] mx-auto leading-relaxed"
+        data-anim="fade-up"
+        style="transition-delay: 200ms"
+      >
         We serve childcare centers, skilled nursing facilities, assisted living
         communities, senior living facilities, ABA companies, junk removal
         companies, plumbing companies, and other multi-location and
@@ -81,30 +31,8 @@ const industries = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {
-        industries.map((industry) => (
-          <div class="bg-card-bg border border-card-border rounded-xl p-7 transition-all duration-250 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)]">
-            <h3 class="text-lg font-bold text-white mb-3.5 flex items-center gap-3 font-serif">
-              <span class="w-10 h-10 bg-accent/15 rounded-[10px] flex items-center justify-center shrink-0">
-                <LucideIcon
-                  name={industry.icon}
-                  size={20}
-                  className="text-accent"
-                />
-              </span>
-              {industry.title}
-            </h3>
-            <ul class="space-y-1">
-              {industry.items.map((item) => (
-                <li class="text-[0.95rem] text-white/60 pl-[22px] relative leading-relaxed py-1 before:content-[''] before:absolute before:left-0 before:top-[13px] before:w-1.5 before:h-1.5 before:bg-accent before:rounded-full">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
+    <div data-anim="fade-up" style="transition-delay: 300ms">
+      <IndustriesAccordion client:load />
     </div>
   </div>
 </section>

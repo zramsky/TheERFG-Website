@@ -29,17 +29,26 @@ const steps = [
 
 <section class="py-20 px-6 bg-page-bg border-t border-white/[0.05]" id="methodology">
   <div class="max-w-[1200px] mx-auto">
-    <div class="text-center mb-14" data-animate>
-      <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
+    <div class="text-center mb-14">
+      <p
+        class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3"
+        data-anim="fade-up"
+      >
         How We Work
       </p>
       <h2
         class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+        data-anim="fade-up"
+        style="transition-delay: 100ms"
       >
         Your Financial Operating System
       </h2>
-      <div class="w-16 h-[3px] bg-accent mx-auto mb-4"></div>
-      <p class="text-xl text-white/60 max-w-[640px] mx-auto leading-relaxed">
+      <div class="w-16 h-[3px] bg-accent mx-auto mb-4 divider-animate"></div>
+      <p
+        class="text-xl text-white/60 max-w-[640px] mx-auto leading-relaxed"
+        data-anim="fade-up"
+        style="transition-delay: 200ms"
+      >
         A proven four-step process to transform your financial operations from a
         source of stress into a strategic advantage.
       </p>
@@ -50,14 +59,17 @@ const steps = [
     >
       <!-- Connecting line (hidden on mobile) -->
       <div
-        class="hidden lg:block absolute top-7 left-[15%] right-[15%] h-0.5 bg-accent/30 z-0"
+        class="hidden lg:block absolute top-7 left-[15%] right-[15%] h-0.5 bg-accent/30 z-0 connecting-line"
       >
       </div>
 
       {
-        steps.map((step) => (
-          <div class="text-center px-4 py-6 relative z-10">
-            <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center text-xl font-extrabold mx-auto mb-5 shadow-[0_4px_12px_rgba(200,117,51,0.3)] font-sans">
+        steps.map((step, i) => (
+          <div class="text-center px-4 py-6 relative z-10" data-anim="fade-up" style={`transition-delay: ${i * 150}ms`}>
+            <div
+              class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center text-xl font-extrabold mx-auto mb-5 shadow-[0_4px_12px_rgba(200,117,51,0.3)] font-sans step-number"
+              style={`animation-delay: ${i * 200 + 300}ms`}
+            >
               {step.number}
             </div>
             <h3 class="text-lg font-bold text-white mb-2.5 font-serif">
@@ -71,10 +83,10 @@ const steps = [
       }
     </div>
 
-    <div class="text-center">
+    <div class="text-center" data-anim="fade-up" style="transition-delay: 600ms">
       <a
         href="#contact"
-        class="inline-block px-8 py-3.5 bg-accent text-[#141414] rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250"
+        class="inline-block px-8 py-3.5 bg-accent text-[#141414] rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250 cta-pulse"
       >
         Start Your Engine
       </a>
