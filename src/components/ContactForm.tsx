@@ -2,21 +2,21 @@ import { useState, type FormEvent } from 'react';
 
 /**
  * Contact form using FormSubmit.co (free, unlimited submissions).
- * Emails are sent to contact@lenoxsl.com.
+ * Emails are sent to getintouch@TheERFG.com.
  *
  * NOTE: The first time a submission is made, FormSubmit will send a
- * confirmation/activation email to contact@lenoxsl.com. You must click
+ * confirmation/activation email to getintouch@TheERFG.com. You must click
  * the link in that email to activate the form. After that, all
  * submissions go straight through.
  */
-const FORM_EMAIL = 'contact@lenoxsl.com';
+const FORM_EMAIL = 'getintouch@TheERFG.com';
 const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${FORM_EMAIL}`;
 
 const industries = [
   'Childcare Centers',
   'Skilled Nursing Facilities',
   'Assisted Living Communities',
-  'Senior Living Facilities',
+  'Management Companies',
   'ABA Companies',
   'Junk Removal',
   'Plumbing & Trades',
@@ -64,7 +64,7 @@ export default function ContactForm() {
       }
     } catch {
       setError(
-        'Something went wrong. Please try again or email us directly at contact@TheERFG.com'
+        'Something went wrong. Please try again or email us directly at getintouch@TheERFG.com'
       );
     } finally {
       setIsSubmitting(false);

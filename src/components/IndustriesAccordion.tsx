@@ -54,10 +54,10 @@ const industries: Industry[] = [
   },
   {
     icon: 'Building2',
-    title: 'Senior Living Facilities',
+    title: 'Management Companies',
     items: [
-      'Multi-level care billing and accounting',
-      'Transparent financial operations',
+      'Multi-entity accounting and owner reporting',
+      'Contract-based revenue tracking and vendor payroll',
     ],
   },
   {
