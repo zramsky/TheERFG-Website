@@ -65,8 +65,8 @@ const {
 
           // Smooth follow for the ring
           function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.15;
-            cursorY += (mouseY - cursorY) * 0.15;
+            cursorX += (mouseX - cursorX) * 0.35;
+            cursorY += (mouseY - cursorY) * 0.35;
             cursor.style.left = `${cursorX}px`;
             cursor.style.top = `${cursorY}px`;
             requestAnimationFrame(animateCursor);
@@ -117,7 +117,26 @@ const {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('in-view');
-              animObserver.unobserve(entry.target);
+            } else {
+              entry.target.classList.remove('in-view');
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      // Separate observer for CSS animation elements (step-number, divider, connecting-line)
+      // These need a reflow to restart the animation when re-entering
+      const cssAnimObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              el.classList.remove('in-view');
+              void el.offsetWidth; // force reflow to restart animation
+              el.classList.add('in-view');
+            } else {
+              entry.target.classList.remove('in-view');
             }
           });
         },
@@ -129,9 +148,9 @@ const {
         animObserver.observe(el);
       });
 
-      // Also observe dividers and step numbers
+      // Observe CSS animation elements separately so they replay
       document.querySelectorAll('.divider-animate, .step-number, .connecting-line').forEach((el) => {
-        animObserver.observe(el);
+        cssAnimObserver.observe(el);
       });
 
       // Legacy data-animate support
@@ -156,12 +175,15 @@ const {
       const staggerObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
+            const children = entry.target.children;
             if (entry.isIntersecting) {
-              const children = entry.target.children;
               Array.from(children).forEach((child) => {
                 child.classList.add('in-view');
               });
-              staggerObserver.unobserve(entry.target);
+            } else {
+              Array.from(children).forEach((child) => {
+                child.classList.remove('in-view');
+              });
             }
           });
         },

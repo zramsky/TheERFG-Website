@@ -22,6 +22,7 @@ import {
   Settings,
   Package,
   Star,
+  Crosshair,
   type LucideProps,
 } from 'lucide-react';
 
@@ -49,6 +50,7 @@ const iconMap = {
   Settings,
   Package,
   Star,
+  Crosshair,
 } as const;
 
 type IconName = keyof typeof iconMap;
