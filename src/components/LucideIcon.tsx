@@ -13,6 +13,15 @@ import {
   Mail,
   Phone,
   MapPin,
+  FileText,
+  DollarSign,
+  Users,
+  BookOpen,
+  Shield,
+  Droplets,
+  Settings,
+  Package,
+  Star,
   type LucideProps,
 } from 'lucide-react';
 
@@ -31,6 +40,15 @@ const iconMap = {
   Mail,
   Phone,
   MapPin,
+  FileText,
+  DollarSign,
+  Users,
+  BookOpen,
+  Shield,
+  Droplets,
+  Settings,
+  Package,
+  Star,
 } as const;
 
 type IconName = keyof typeof iconMap;

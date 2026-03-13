@@ -1,46 +1,57 @@
 ---
+import LucideIcon from './LucideIcon';
+
 const services = [
   {
+    icon: 'FileText' as const,
     title: 'Accounts Payable',
     description:
       'Invoice processing, vendor management, and payment optimization',
   },
   {
+    icon: 'DollarSign' as const,
     title: 'Accounts Receivable',
     description:
       'Client billing, collections, and cash flow acceleration',
   },
   {
+    icon: 'Users' as const,
     title: 'Payroll Management',
     description:
       'End-to-end payroll processing, tax filing, and compliance',
   },
   {
+    icon: 'BookOpen' as const,
     title: 'Accounting & GL Management',
     description:
       'Journal entries, reconciliations, and financial record-keeping',
   },
   {
+    icon: 'Shield' as const,
     title: 'Tax Planning & Compliance',
     description:
       'Strategic tax planning and regulatory compliance management',
   },
   {
+    icon: 'BarChart3' as const,
     title: 'Financial Reporting',
     description:
       'Monthly statements, KPI tracking, and strategic insights',
   },
   {
+    icon: 'Droplets' as const,
     title: 'Cash Flow Support',
     description:
       'Forecasting, liquidity management, and financial optimization',
   },
   {
+    icon: 'Settings' as const,
     title: 'Financial Process Optimization',
     description:
       'System implementation, workflow automation, and efficiency gains',
   },
   {
+    icon: 'Package' as const,
     title: 'Custom Finance Support',
     description:
       'Tailored packages designed for your unique business needs',
@@ -48,9 +59,9 @@ const services = [
 ];
 ---
 
-<section class="py-24 px-6 bg-[#1a1a1a]" id="services">
+<section class="py-20 px-6 bg-[#1a1a1a]" id="services">
   <div class="max-w-[1200px] mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-14 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-14 items-start" data-animate>
       <!-- Left side: description -->
       <div>
         <p
@@ -59,22 +70,31 @@ const services = [
           Services
         </p>
         <h2
-          class="text-[1.85rem] md:text-[2.5rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+          class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
         >
           Your Outsourced Financial Operations
         </h2>
         <div class="w-16 h-[3px] bg-accent mb-6"></div>
         <p
+          class="text-base text-white/60 leading-relaxed mb-4"
+        >
+          We act as your full outsourced finance department—managing every
+          aspect of your financial operations with precision and care.
+        </p>
+        <p
+          class="text-base text-white/60 leading-relaxed mb-4"
+        >
+          As your strategic back-office partner, we handle the operational details so you can focus on growing your business. From day-to-day transactions to strategic financial planning, we've got your numbers.
+        </p>
+        <p
           class="text-base text-white/60 leading-relaxed mb-8"
         >
-          We act as your full outsourced finance department -- managing every
-          aspect of your financial operations with precision and care. Every
-          service is tailored to your business model, whether you're managing a
+          Every service is tailored to your business model, whether you're managing a
           single location or running a complex multi-site operation.
         </p>
         <a
           href="#contact"
-          class="inline-block px-8 py-3.5 bg-accent text-white rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250"
+          class="inline-block px-8 py-3.5 bg-accent text-[#141414] rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250"
         >
           Discuss Your Needs
         </a>
@@ -84,11 +104,18 @@ const services = [
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {
           services.map((service) => (
-            <div class="bg-card-bg border border-card-border rounded-xl p-6 transition-all duration-250 hover:border-accent/30 hover:-translate-y-0.5">
+            <div class="bg-card-bg border border-card-border rounded-xl p-6 transition-all duration-250 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)]">
+              <div class="w-10 h-10 bg-accent/15 rounded-[10px] flex items-center justify-center mb-3">
+                <LucideIcon
+                  name={service.icon}
+                  size={20}
+                  className="text-accent"
+                />
+              </div>
               <h3 class="text-base font-bold text-white mb-2 font-serif">
                 {service.title}
               </h3>
-              <p class="text-sm text-white/50 leading-relaxed">
+              <p class="text-[0.95rem] text-white/50 leading-relaxed">
                 {service.description}
               </p>
             </div>

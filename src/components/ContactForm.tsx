@@ -86,6 +86,9 @@ export default function ContactForm() {
   const inputClasses =
     'w-full px-4 py-3 border-[1.5px] border-white/15 rounded-lg text-[0.95rem] text-white bg-[#2a2a2a] transition-all duration-200 focus:outline-none focus:border-accent focus:bg-[#333333] focus:ring-[3px] focus:ring-accent/10 placeholder:text-white/30';
 
+  const selectClasses =
+    'w-full px-4 py-3 border-[1.5px] border-white/15 rounded-lg text-[0.95rem] text-white bg-[#2a2a2a] transition-all duration-200 focus:outline-none focus:border-accent focus:bg-[#333333] focus:ring-[3px] focus:ring-accent/10 placeholder:text-white/30 appearance-none';
+
   return (
     <div>
       <h3 className="text-xl font-bold text-white mb-7 font-serif">
@@ -102,7 +105,7 @@ export default function ContactForm() {
             htmlFor="name"
             className="block text-sm font-semibold text-white/70 mb-1.5"
           >
-            Full Name
+            Full Name<span className="text-accent ml-0.5">*</span>
           </label>
           <input
             type="text"
@@ -119,7 +122,7 @@ export default function ContactForm() {
             htmlFor="email"
             className="block text-sm font-semibold text-white/70 mb-1.5"
           >
-            Email Address
+            Email Address<span className="text-accent ml-0.5">*</span>
           </label>
           <input
             type="email"
@@ -136,7 +139,7 @@ export default function ContactForm() {
             htmlFor="company"
             className="block text-sm font-semibold text-white/70 mb-1.5"
           >
-            Company Name
+            Company Name<span className="text-accent ml-0.5">*</span>
           </label>
           <input
             type="text"
@@ -153,14 +156,20 @@ export default function ContactForm() {
             htmlFor="industry"
             className="block text-sm font-semibold text-white/70 mb-1.5"
           >
-            Industry
+            Industry<span className="text-accent ml-0.5">*</span>
           </label>
           <select
             id="industry"
             name="industry"
             required
             defaultValue=""
-            className={inputClasses}
+            className={selectClasses}
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'right 12px center',
+              paddingRight: '36px',
+            }}
           >
             <option value="" disabled>
               Select your industry
@@ -178,7 +187,7 @@ export default function ContactForm() {
             htmlFor="message"
             className="block text-sm font-semibold text-white/70 mb-1.5"
           >
-            Tell Us About Your Business
+            Tell Us About Your Business<span className="text-accent ml-0.5">*</span>
           </label>
           <textarea
             id="message"
@@ -198,10 +207,11 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-4 mt-2 bg-accent text-white rounded-lg font-semibold text-base border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
+          className="w-full py-4 mt-2 bg-accent text-[#141414] rounded-lg font-semibold text-base border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
         >
           {isSubmitting ? 'Sending...' : 'Schedule Your Consultation'}
         </button>
+        <p className="text-sm text-white/40 text-center mt-4">We'll reach out within 24 business hours to schedule a time that works for you.</p>
       </form>
     </div>
   );

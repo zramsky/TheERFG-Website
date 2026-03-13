@@ -18,22 +18,39 @@
   --color-muted: rgba(255, 255, 255, 0.6);
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Lora', Georgia, serif;
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 
 /* Base styles */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-page-bg);
   color: #ffffff;
 }
 
+p {
+  font-family: var(--font-body);
+}
+
+/* UI elements keep Inter */
+nav a, button, label, input, select, textarea {
+  font-family: var(--font-sans);
+}
+
 h1, h2, h3 {
   font-family: var(--font-serif);
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

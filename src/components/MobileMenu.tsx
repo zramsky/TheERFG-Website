@@ -20,6 +20,18 @@ export default function MobileMenu() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const closeMenu = () => setIsOpen(false);
 
   const links = [
@@ -56,6 +68,15 @@ export default function MobileMenu() {
         />
       </button>
 
+      {/* Backdrop overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-[998]"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile nav dropdown */}
       {isOpen && (
         <div
@@ -75,7 +96,7 @@ export default function MobileMenu() {
           <a
             href="#contact"
             onClick={closeMenu}
-            className="inline-block text-center mt-2 px-8 py-3.5 bg-accent text-white rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover no-underline transition-all duration-250"
+            className="inline-block text-center mt-2 px-8 py-3.5 bg-accent text-[#141414] rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover no-underline transition-all duration-250"
           >
             Schedule a Call
           </a>

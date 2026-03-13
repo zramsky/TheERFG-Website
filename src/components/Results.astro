@@ -29,14 +29,14 @@ const results = [
 ];
 ---
 
-<section class="py-24 px-6 bg-page-bg" id="results">
+<section class="py-20 px-6 bg-page-bg border-t border-white/[0.05]" id="results">
   <div class="max-w-[1200px] mx-auto">
-    <div class="text-center mb-14">
+    <div class="text-center mb-14" data-animate>
       <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
         Results
       </p>
       <h2
-        class="text-[1.85rem] md:text-[2.5rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+        class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
       >
         What You Get
       </h2>
@@ -44,11 +44,11 @@ const results = [
     </div>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6"
     >
       {
         results.map((result) => (
-          <div class="text-center p-9 px-6 rounded-xl bg-card-bg border border-card-border transition-all duration-250 hover:border-accent/30 hover:-translate-y-0.5">
+          <div class="text-center p-9 px-6 rounded-xl bg-card-bg border border-card-border transition-all duration-250 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)]">
             <div class="w-[60px] h-[60px] bg-accent/15 rounded-[14px] flex items-center justify-center mx-auto mb-4">
               <LucideIcon
                 name={result.icon}
@@ -59,7 +59,7 @@ const results = [
             <h3 class="text-lg font-bold text-white mb-2.5 font-serif">
               {result.title}
             </h3>
-            <p class="text-sm text-white/60 leading-relaxed">
+            <p class="text-[0.95rem] text-white/60 leading-relaxed">
               {result.description}
             </p>
           </div>

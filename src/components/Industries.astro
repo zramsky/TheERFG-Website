@@ -61,19 +61,19 @@ const industries = [
 ];
 ---
 
-<section class="py-24 px-6 bg-page-bg" id="industries">
-  <div class="max-w-[1200px] mx-auto">
+<section class="py-20 px-6 bg-page-bg border-t border-white/[0.05]" id="industries">
+  <div class="max-w-[1200px] mx-auto" data-animate>
     <div class="text-center mb-14">
       <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
         Who We Serve
       </p>
       <h2
-        class="text-[1.85rem] md:text-[2.5rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+        class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
       >
         Built for Real Operators
       </h2>
       <div class="w-16 h-[3px] bg-accent mx-auto mb-4"></div>
-      <p class="text-lg text-white/60 max-w-[640px] mx-auto leading-relaxed">
+      <p class="text-xl text-white/60 max-w-[640px] mx-auto leading-relaxed">
         We serve childcare centers, skilled nursing facilities, assisted living
         communities, senior living facilities, ABA companies, junk removal
         companies, plumbing companies, and other multi-location and
@@ -84,7 +84,7 @@ const industries = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {
         industries.map((industry) => (
-          <div class="bg-card-bg border border-card-border rounded-xl p-7 transition-all duration-250 hover:border-accent/30 hover:-translate-y-0.5">
+          <div class="bg-card-bg border border-card-border rounded-xl p-7 transition-all duration-250 hover:border-accent/50 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(200,117,51,0.1)]">
             <h3 class="text-lg font-bold text-white mb-3.5 flex items-center gap-3 font-serif">
               <span class="w-10 h-10 bg-accent/15 rounded-[10px] flex items-center justify-center shrink-0">
                 <LucideIcon
@@ -97,7 +97,7 @@ const industries = [
             </h3>
             <ul class="space-y-1">
               {industry.items.map((item) => (
-                <li class="text-sm text-white/60 pl-[22px] relative leading-relaxed py-1 before:content-[''] before:absolute before:left-0 before:top-[13px] before:w-1.5 before:h-1.5 before:bg-accent before:rounded-full">
+                <li class="text-[0.95rem] text-white/60 pl-[22px] relative leading-relaxed py-1 before:content-[''] before:absolute before:left-0 before:top-[13px] before:w-1.5 before:h-1.5 before:bg-accent before:rounded-full">
                   {item}
                 </li>
               ))}
