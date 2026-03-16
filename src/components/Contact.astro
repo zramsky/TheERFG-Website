@@ -33,19 +33,19 @@ import ContactForm from './ContactForm';
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-4 min-w-0">
           <div
             class="w-11 h-11 bg-accent/15 rounded-xl flex items-center justify-center shrink-0"
           >
             <LucideIcon name="Mail" size={20} className="text-accent" />
           </div>
-          <div>
+          <div class="min-w-0">
             <div
               class="text-xs text-white/40 uppercase tracking-[1px] font-semibold mb-0.5"
             >
               Email
             </div>
-            <div class="text-[0.95rem] text-white font-medium">
+            <div class="text-[0.95rem] text-white font-medium break-all">
               <a
                 href="mailto:getintouch@TheERFG.com"
                 class="hover:text-accent transition-colors"
@@ -56,13 +56,13 @@ import ContactForm from './ContactForm';
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-4 min-w-0">
           <div
             class="w-11 h-11 bg-accent/15 rounded-xl flex items-center justify-center shrink-0"
           >
             <LucideIcon name="Phone" size={20} className="text-accent" />
           </div>
-          <div>
+          <div class="min-w-0">
             <div
               class="text-xs text-white/40 uppercase tracking-[1px] font-semibold mb-0.5"
             >
@@ -79,13 +79,13 @@ import ContactForm from './ContactForm';
           </div>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-4 min-w-0">
           <div
             class="w-11 h-11 bg-accent/15 rounded-xl flex items-center justify-center shrink-0"
           >
             <LucideIcon name="MapPin" size={20} className="text-accent" />
           </div>
-          <div>
+          <div class="min-w-0">
             <div
               class="text-xs text-white/40 uppercase tracking-[1px] font-semibold mb-0.5"
             >
