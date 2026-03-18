@@ -24,7 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     /* ===== VARIABLES ===== */
     :root {
@@ -32,6 +32,9 @@
       --card-bg: #1e1e1e;
       --accent: #C87533;
       --accent-hover: #D4953D;
+      --gold: #c9922a;
+      --gold-light: #e0ae48;
+      --gold-pale: #f7eed8;
       --white: #ffffff;
       --border: rgba(255,255,255,0.08);
       --text-primary: #ffffff;
@@ -39,6 +42,7 @@
       --text-muted: rgba(255,255,255,0.4);
       --max-width: 1200px;
       --radius: 12px;
+      --rule: rgba(255,255,255,0.12);
     }
 
     /* ===== RESET & BASE ===== */
@@ -46,55 +50,17 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lora', Georgia, serif;
+      font-family: 'Outfit', 'Lora', Georgia, serif;
       color: var(--text-primary);
-      line-height: 1.7;
+      line-height: 1.75;
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
     img { max-width: 100%; height: auto; display: block; }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ===== TYPOGRAPHY ===== */
-    .section-label {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: var(--accent);
-      margin-bottom: 12px;
-      font-family: 'Inter', system-ui, sans-serif;
-    }
-
-    .section-title {
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 16px;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      font-family: 'Playfair Display', Georgia, serif;
-    }
-
-    .divider {
-      width: 64px;
-      height: 3px;
-      background: var(--accent);
-      margin-bottom: 24px;
-    }
-
-    .divider-center {
-      margin-left: auto;
-      margin-right: auto;
-    }
 
     /* ===== HEADER ===== */
     .header {
@@ -117,6 +83,7 @@
       justify-content: space-between;
       height: 140px;
       max-width: 1400px;
+      margin: 0 auto;
     }
 
     .logo {
@@ -230,133 +197,447 @@
     /* ===== HERO ===== */
     .about-hero {
       padding: 200px 24px 80px;
-      background: var(--bg);
+      background: #0a0a0a;
       text-align: center;
       position: relative;
       overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
+
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 1.2s ease 0.8s;
+    }
+    .about-hero.hero-loaded::after { transform: scaleX(1); }
+
+    .hero-gear {
+      position: absolute;
+      width: 600px; height: 600px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.09;
+      animation: gearSpin 60s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes gearSpin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0;
+      animation: particleFloat var(--dur, 8s) var(--delay, 0s) ease-in-out infinite;
+    }
+
+    @keyframes particleFloat {
+      0% { opacity: 0; transform: translateY(0) scale(0); }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.2; }
+      100% { opacity: 0; transform: translateY(-120px) scale(1.5); }
+    }
+
+    .about-hero .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+      font-family: 'Inter', system-ui, sans-serif;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+    }
+    .about-hero.hero-loaded .hero-eyebrow { opacity: 1; transform: translateY(0); }
+
+    .about-hero h1 {
+      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.15;
+      max-width: 660px;
+      margin: 0 auto 1.25rem;
+      letter-spacing: -0.01em;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.9s ease 0.5s, transform 0.9s ease 0.5s;
+    }
+    .about-hero.hero-loaded h1 { opacity: 1; transform: translateY(0); }
+
+    .about-hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .about-hero .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+      opacity: 0; transform: translateY(14px);
+      transition: opacity 0.8s ease 0.75s, transform 0.8s ease 0.75s;
+    }
+    .about-hero.hero-loaded .hero-sub { opacity: 1; transform: translateY(0); }
 
     .about-hero .back-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gold-light);
       transition: color 0.2s;
       font-family: 'Inter', system-ui, sans-serif;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transition: opacity 0.6s ease 0.2s, color 0.2s;
     }
+    .about-hero.hero-loaded .back-link { opacity: 1; }
     .about-hero .back-link:hover { color: var(--accent-hover); }
 
-    .about-hero h1 {
-      font-size: 3.75rem;
-      font-weight: 700;
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+
+    .reveal-left {
+      opacity: 0; transform: translateX(-32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-left.revealed { opacity: 1; transform: translateX(0); }
+
+    .reveal-right {
+      opacity: 0; transform: translateX(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-right.revealed { opacity: 1; transform: translateX(0); }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+
+    /* ===== MAIN CONTENT ===== */
+    .about-main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    /* ===== REASSURANCE ===== */
+    .reassure {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .reassure h2 {
+      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+      font-weight: 600;
       color: var(--white);
-      line-height: 1.25;
-      margin-top: 24px;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-      font-family: 'Playfair Display', Georgia, serif;
+      margin-bottom: 0.75rem;
     }
 
-    .about-hero .subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    /* ===== ABOUT SECTIONS ===== */
-    .about-section {
-      padding: 80px 24px;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-    }
-
-    .about-section .section-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .about-content p {
+    .reassure p {
       font-size: 1.1rem;
+      font-weight: 300;
       color: var(--text-secondary);
-      line-height: 1.9;
-      margin-bottom: 20px;
-    }
-
-    .about-content-placeholder {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 48px 32px;
-      text-align: center;
-      max-width: 800px;
+      max-width: 600px;
       margin: 0 auto;
-      position: relative;
-      transition: all 0.3s;
-    }
-
-    .about-content-placeholder:hover {
-      border-color: rgba(200,117,51,0.3);
-      transform: translateY(-2px);
-    }
-
-    .about-content-placeholder p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      font-style: italic;
-      font-family: 'Inter', system-ui, sans-serif;
-    }
-
-    /* ===== CTA SECTION ===== */
-    .about-cta {
-      padding: 80px 24px;
-      background: var(--card-bg);
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-
-    .about-cta .section-title {
-      margin-bottom: 16px;
-    }
-
-    .about-cta p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      max-width: 540px;
-      margin: 0 auto 32px;
       line-height: 1.8;
     }
 
-    .btn-primary {
-      display: inline-block;
-      padding: 14px 32px;
-      background: var(--accent);
-      color: var(--bg);
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 2px solid var(--accent);
-      transition: all 0.25s;
+    /* ===== DIVIDER ===== */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.8s ease;
+    }
+    .divider.revealed::before, .divider.revealed::after { transform: scaleX(1); }
+
+    .divider-icon {
+      width: 30px; height: 30px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: scale(0.4) rotate(-90deg);
+      transition: opacity 0.6s ease 0.4s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s;
+    }
+    .divider.revealed .divider-icon { opacity: 1; transform: scale(1) rotate(0deg); }
+
+    .divider-icon svg { width: 12px; height: 12px; fill: var(--gold); }
+
+    /* ===== NAME BLOCK ===== */
+    .name-block {
+      background: #0a0a0a;
+      border-radius: 6px;
+      padding: 2.75rem 2.75rem 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .name-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s ease 0.3s;
+    }
+    .name-block.revealed::before { transform: scaleX(1); }
+
+    .name-gear {
+      position: absolute;
+      right: -40px; top: -40px;
+      width: 180px; height: 180px;
+      opacity: 0.08;
+      animation: gearSpin 40s linear infinite reverse;
+      pointer-events: none;
+    }
+
+    .name-block-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
       font-family: 'Inter', system-ui, sans-serif;
     }
-    .btn-primary:hover {
+
+    .name-block p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.85;
+    }
+
+    .name-block p + p { margin-top: 1rem; }
+
+    .name-block strong {
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    /* ===== THREE PILLARS ===== */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 3rem;
+    }
+
+    .pillar {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 2.5px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.5rem 1.25rem;
+    }
+
+    .pillar-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: rgba(201,146,42,0.3);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .pillar p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ===== SERVICES ===== */
+    .services-intro {
+      margin-bottom: 1.75rem;
+    }
+
+    .services-intro h2 {
+      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .services-intro p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 3rem;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.85rem 1rem;
+    }
+
+    .service-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .service-item span {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    /* ===== CTA BLOCK ===== */
+    .cta-block {
+      background: rgba(201,146,42,0.08);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: 6px;
+      padding: 2rem 2rem 1.75rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; right: -100%; bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(201,146,42,0.06), transparent);
+      transform: translateX(-100%);
+    }
+    .cta-block.cta-shimmer::before {
+      animation: shimmer 1.5s ease forwards;
+    }
+
+    @keyframes shimmer {
+      to { transform: translateX(100%); }
+    }
+
+    .cta-block h2 {
+      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-block > p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+    }
+
+    .cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.6rem 1.25rem;
+      border-radius: 3px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.2s;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .cta-link:hover {
       background: var(--accent-hover);
-      border-color: var(--accent-hover);
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(200,117,51,0.35);
+    }
+
+    .cta-link.ghost {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    .cta-link.ghost:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.2);
     }
 
     /* ===== FOOTER ===== */
     .footer {
-      background: var(--bg);
+      background: #0a0a0a;
       color: var(--white);
       padding: 64px 24px 32px;
       border-top: 1px solid var(--border);
@@ -465,28 +746,6 @@
       #custom-cursor, #custom-cursor-dot { display: none !important; }
     }
 
-    /* ===== PARTICLES ===== */
-    #particles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(200, 117, 51, 0.3);
-      border-radius: 50%;
-    }
-
-    @keyframes drift {
-      0%, 100% { transform: translate(0, 0); opacity: 0.3; }
-      50% { transform: translate(20px, -30px); opacity: 0.6; }
-    }
-
     /* ===== SCROLL PROGRESS ===== */
     #scroll-progress {
       position: fixed;
@@ -508,11 +767,11 @@
 
     @media (max-width: 640px) {
       .about-hero h1 { font-size: 2.2rem; }
-      .about-hero { padding: 160px 20px 64px; }
-      .section-title { font-size: 1.85rem; }
-      .about-section { padding: 64px 20px; }
-      .about-cta { padding: 64px 20px; }
-      .about-content-placeholder { padding: 32px 20px; }
+      .about-hero { padding: 180px 20px 64px; min-height: auto; }
+      .about-main { padding: 2.5rem 1.25rem 4rem; }
+      .pillars { grid-template-columns: 1fr; }
+      .service-list { grid-template-columns: 1fr; }
+      .name-block { padding: 1.75rem 1.5rem; }
       .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -525,9 +784,6 @@
   <!-- Custom Cursor -->
   <div id="custom-cursor"></div>
   <div id="custom-cursor-dot"></div>
-
-  <!-- Decorative Particles -->
-  <div id="particles" aria-hidden="true"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -560,67 +816,99 @@
   </nav>
 
   <!-- HERO -->
-  <section class="about-hero">
-    <div class="container">
-      <a href="https://theerfg.com" class="back-link">&larr; Back to Home</a>
-      <h1>About Engine Room Financial Group</h1>
-      <div class="divider divider-center"></div>
-      <p class="subtitle">Who we are, where we come from, and how we operate.</p>
-    </div>
+  <section class="about-hero" id="hero">
+    <!-- Spinning gear background -->
+    <svg class="hero-gear" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--gold)" d="M43.3 5.3l-1.2 7.2a30 30 0 00-7.4 3.1L28.9 12l-9.8 9.8 3.6 5.8a30 30 0 00-3.1 7.4l-7.2 1.2v13.8l7.2 1.2a30 30 0 003.1 7.4l-3.6 5.8 9.8 9.8 5.8-3.6a30 30 0 007.4 3.1l1.2 7.2h13.8l1.2-7.2a30 30 0 007.4-3.1l5.8 3.6 9.8-9.8-3.6-5.8a30 30 0 003.1-7.4l7.2-1.2V43.3l-7.2-1.2a30 30 0 00-3.1-7.4l3.6-5.8-9.8-9.8-5.8 3.6a30 30 0 00-7.4-3.1l-1.2-7.2H43.3zm6.7 24a20.7 20.7 0 110 41.4A20.7 20.7 0 0150 29.3z"/>
+    </svg>
+    <!-- Floating particles -->
+    <div class="hero-particles" id="hero-particles"></div>
+
+    <a href="https://theerfg.com" class="back-link">&larr; Back to Home</a>
+    <p class="hero-eyebrow">A note on our new name</p>
+    <h1>Same people.<br><em>Stronger infrastructure.</em></h1>
+    <p class="hero-sub">If you've received an email from a new address or noticed a new company name, you're in exactly the right place.</p>
   </section>
 
-  <!-- WHO WE ARE -->
-  <section class="about-section">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">Who We Are</p>
-        <h2 class="section-title">Our Story</h2>
-        <div class="divider divider-center"></div>
-      </div>
-      <div class="about-content-placeholder">
-        <p>Content coming soon.</p>
-      </div>
-    </div>
-  </section>
+  <!-- MAIN CONTENT -->
+  <main class="about-main">
 
-  <!-- WHERE OUR INCOME COMES FROM -->
-  <section class="about-section">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">Revenue</p>
-        <h2 class="section-title">Where Our Income Comes From</h2>
-        <div class="divider divider-center"></div>
-      </div>
-      <div class="about-content-placeholder">
-        <p>Content coming soon.</p>
-      </div>
+    <!-- Reassurance -->
+    <div class="reassure reveal">
+      <h2>Your relationship hasn&rsquo;t changed.</h2>
+      <p>The people you've worked with, the services you rely on, the commitments we've made &mdash; all of it continues. What's changed is the name, the structure, and the level of professionalism behind the operation.</p>
     </div>
-  </section>
 
-  <!-- OUR HISTORY -->
-  <section class="about-section">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">History</p>
-        <h2 class="section-title">Our Journey</h2>
-        <div class="divider divider-center"></div>
-      </div>
-      <div class="about-content-placeholder">
-        <p>Content coming soon.</p>
+    <!-- Divider -->
+    <div class="divider reveal">
+      <div class="divider-icon">
+        <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0l1.5 4.5H12l-3.75 2.7 1.5 4.5L6 9l-3.75 2.7 1.5-4.5L0 4.5h4.5z"/></svg>
       </div>
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="about-cta">
-    <div class="container">
-      <p class="section-label">Get Started</p>
-      <h2 class="section-title">Ready to Work Together?</h2>
-      <div class="divider divider-center"></div>
-      <p>Get in touch and let's talk about how we can support your business.</p>
-      <a href="https://theerfg.com#contact" class="btn-primary">Get In Touch</a>
+    <!-- Name explanation -->
+    <div class="name-block reveal">
+      <svg class="name-gear" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path fill="white" d="M43.3 5.3l-1.2 7.2a30 30 0 00-7.4 3.1L28.9 12l-9.8 9.8 3.6 5.8a30 30 0 00-3.1 7.4l-7.2 1.2v13.8l7.2 1.2a30 30 0 003.1 7.4l-3.6 5.8 9.8 9.8 5.8-3.6a30 30 0 007.4 3.1l1.2 7.2h13.8l1.2-7.2a30 30 0 007.4-3.1l5.8 3.6 9.8-9.8-3.6-5.8a30 30 0 003.1-7.4l7.2-1.2V43.3l-7.2-1.2a30 30 0 00-3.1-7.4l3.6-5.8-9.8-9.8-5.8 3.6a30 30 0 00-7.4-3.1l-1.2-7.2H43.3zm6.7 24a20.7 20.7 0 110 41.4A20.7 20.7 0 0150 29.3z"/>
+      </svg>
+      <p class="name-block-label">Why &ldquo;The Engine Room&rdquo;</p>
+      <p>On a ship, the engine room is below deck &mdash; <strong>invisible to everyone on board, yet entirely responsible for keeping the vessel moving.</strong> No passengers see it. No guests think about it. But without it, nothing goes anywhere.</p>
+      <p>That&rsquo;s the role we&rsquo;re designed to play: the financial engine running beneath your operation, quietly and reliably powering everything above it. We handle the back-office so the people doing the real work &mdash; caring for residents, running teams, serving clients &mdash; never have to think twice about it.</p>
     </div>
-  </section>
+
+    <!-- Three pillars -->
+    <div class="pillars">
+      <div class="pillar reveal-left stagger-1">
+        <div class="pillar-num">01</div>
+        <h3>Same Ownership</h3>
+        <p>TheERFG is owned and operated by the same principal you&rsquo;ve always worked with. This is a consolidation, not a transition to a new party.</p>
+      </div>
+      <div class="pillar reveal stagger-2">
+        <div class="pillar-num">02</div>
+        <h3>Unified Operations</h3>
+        <p>All financial and back-office functions are now under one roof &mdash; one team, one system, one point of accountability across every entity we operate.</p>
+      </div>
+      <div class="pillar reveal-right stagger-3">
+        <div class="pillar-num">03</div>
+        <h3>Built to Scale</h3>
+        <p>This isn&rsquo;t just a rebrand. It&rsquo;s the infrastructure we&rsquo;ve built to serve our businesses &mdash; and our partners &mdash; at a higher level going forward.</p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider reveal">
+      <div class="divider-icon">
+        <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6 0l1.5 4.5H12l-3.75 2.7 1.5 4.5L6 9l-3.75 2.7 1.5-4.5L0 4.5h4.5z"/></svg>
+      </div>
+    </div>
+
+    <!-- What we do -->
+    <div class="services-intro reveal">
+      <h2>What the Engine Room handles</h2>
+      <p>We operate as the full financial department across our portfolio of businesses &mdash; so every operator can stay focused on their work.</p>
+    </div>
+
+    <div class="service-list">
+      <div class="service-item reveal-left stagger-1"><div class="service-dot"></div><span>Accounts Payable &amp; Receivable</span></div>
+      <div class="service-item reveal-right stagger-1"><div class="service-dot"></div><span>Payroll Processing &amp; Compliance</span></div>
+      <div class="service-item reveal-left stagger-2"><div class="service-dot"></div><span>Financial Reporting &amp; Analysis</span></div>
+      <div class="service-item reveal-right stagger-2"><div class="service-dot"></div><span>Tax Planning &amp; Compliance</span></div>
+      <div class="service-item reveal-left stagger-3"><div class="service-dot"></div><span>Cash Flow Management</span></div>
+      <div class="service-item reveal-right stagger-3"><div class="service-dot"></div><span>Back-Office Operations</span></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block reveal" id="cta">
+      <h2>Questions? We&rsquo;re easy to reach.</h2>
+      <p>If you&rsquo;d like to confirm who you&rsquo;re working with or connect directly, don&rsquo;t hesitate to get in touch.</p>
+      <div class="cta-links">
+        <a class="cta-link" href="https://theerfg.com" target="_blank">Visit TheERFG.com</a>
+        <a class="cta-link ghost" href="mailto:getintouch@TheERFG.com">getintouch@TheERFG.com</a>
+        <a class="cta-link ghost" href="tel:6464506051">646-450-6051</a>
+      </div>
+    </div>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -671,13 +959,76 @@
   </footer>
 
   <script>
-    // Custom cursor
-    const cursor = document.getElementById('custom-cursor');
-    const cursorDot = document.getElementById('custom-cursor-dot');
+    // ── Hero load animation ──
+    window.addEventListener('load', function() {
+      document.getElementById('hero').classList.add('hero-loaded');
+    });
+
+    // ── Hero particles ──
+    (function() {
+      var container = document.getElementById('hero-particles');
+      if (!container) return;
+      for (var i = 0; i < 18; i++) {
+        var p = document.createElement('div');
+        p.className = 'hero-particle';
+        p.style.cssText = [
+          'left:' + (5 + Math.random() * 90) + '%',
+          'top:' + (20 + Math.random() * 60) + '%',
+          '--dur:' + (6 + Math.random() * 10) + 's',
+          '--delay:' + (Math.random() * 8) + 's',
+          'width:' + (1 + Math.random() * 2.5) + 'px',
+          'height:' + (1 + Math.random() * 2.5) + 'px'
+        ].join(';');
+        container.appendChild(p);
+      }
+    })();
+
+    // ── Scroll-reveal (IntersectionObserver) — repeatable ──
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        } else {
+          entry.target.classList.remove('revealed');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .divider').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // ── CTA shimmer on scroll into view — repeatable ──
+    var ctaObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('cta-shimmer');
+          // Force reflow so the animation restarts
+          void entry.target.offsetWidth;
+          setTimeout(function() { entry.target.classList.add('cta-shimmer'); }, 400);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    var cta = document.getElementById('cta');
+    if (cta) ctaObserver.observe(cta);
+
+    // ── Gear parallax on scroll ──
+    window.addEventListener('scroll', function() {
+      var gear = document.querySelector('.hero-gear');
+      if (gear) {
+        var y = window.scrollY * 0.15;
+        gear.style.transform = 'translate(-50%, calc(-50% + ' + y + 'px))';
+      }
+    }, { passive: true });
+
+    // ── Custom cursor ──
+    var cursor = document.getElementById('custom-cursor');
+    var cursorDot = document.getElementById('custom-cursor-dot');
 
     if (cursor && cursorDot) {
-      let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
-      let cursorActive = false;
+      var targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+      var cursorActive = false;
 
       function enableCursor() {
         if (cursorActive) return;
@@ -693,7 +1044,7 @@
         document.documentElement.style.cursor = 'auto';
       }
 
-      document.addEventListener('mousemove', (e) => {
+      document.addEventListener('mousemove', function(e) {
         enableCursor();
         targetX = e.clientX;
         targetY = e.clientY;
@@ -703,7 +1054,7 @@
         cursorDot.style.opacity = '1';
       });
 
-      document.addEventListener('touchstart', () => disableCursor(), { passive: true });
+      document.addEventListener('touchstart', function() { disableCursor(); }, { passive: true });
 
       function animateCursor() {
         currentX += (targetX - currentX) * 0.35;
@@ -714,16 +1065,16 @@
       }
       animateCursor();
 
-      document.querySelectorAll('a, button, [role="button"], input, select, textarea').forEach((el) => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+      document.querySelectorAll('a, button, [role="button"], input, select, textarea').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { cursor.classList.add('cursor-hover'); });
+        el.addEventListener('mouseleave', function() { cursor.classList.remove('cursor-hover'); });
       });
 
-      document.addEventListener('mouseleave', () => {
+      document.addEventListener('mouseleave', function() {
         cursor.style.opacity = '0';
         cursorDot.style.opacity = '0';
       });
-      document.addEventListener('mouseenter', () => {
+      document.addEventListener('mouseenter', function() {
         if (cursorActive) {
           cursor.style.opacity = '0.85';
           cursorDot.style.opacity = '1';
@@ -731,24 +1082,24 @@
       });
     }
 
-    // Mobile menu toggle
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
+    // ── Mobile menu toggle ──
+    var mobileToggle = document.querySelector('.mobile-toggle');
+    var mobileNav = document.querySelector('.mobile-nav');
 
     if (mobileToggle && mobileNav) {
-      mobileToggle.addEventListener('click', () => {
+      mobileToggle.addEventListener('click', function() {
         mobileNav.classList.toggle('active');
         mobileToggle.classList.toggle('active');
       });
 
-      document.querySelectorAll('.mobile-nav a').forEach(link => {
-        link.addEventListener('click', () => {
+      document.querySelectorAll('.mobile-nav a').forEach(function(link) {
+        link.addEventListener('click', function() {
           mobileNav.classList.remove('active');
           mobileToggle.classList.remove('active');
         });
       });
 
-      document.addEventListener('click', (e) => {
+      document.addEventListener('click', function(e) {
         if (!mobileNav.contains(e.target) && !mobileToggle.contains(e.target)) {
           mobileNav.classList.remove('active');
           mobileToggle.classList.remove('active');
@@ -756,9 +1107,9 @@
       });
     }
 
-    // Header shadow on scroll
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
+    // ── Header shadow on scroll ──
+    var header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
       if (window.scrollY > 10) {
         header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.3)';
       } else {
@@ -766,29 +1117,14 @@
       }
     });
 
-    // Scroll progress bar
-    const scrollProgress = document.getElementById('scroll-progress');
-    window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
+    // ── Scroll progress bar ──
+    var scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', function() {
+      var scrollTop = document.documentElement.scrollTop;
+      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var progress = (scrollTop / scrollHeight) * 100;
       scrollProgress.style.width = progress + '%';
     });
-
-    // Generate particles
-    const particlesContainer = document.getElementById('particles');
-    if (particlesContainer) {
-      for (let i = 0; i < 20; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = (Math.random() * 100) + '%';
-        particle.style.top = (Math.random() * 100) + '%';
-        const duration = (4 + Math.random() * 6).toFixed(2);
-        const delay = (Math.random() * 5).toFixed(2);
-        particle.style.animation = `${duration}s ease-in-out ${delay}s infinite drift`;
-        particlesContainer.appendChild(particle);
-      }
-    }
   </script>
 </body>
 </html>
