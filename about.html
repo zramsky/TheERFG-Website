@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Engine Room Financial Group</title>
+  <meta name="description" content="Learn about Engine Room Financial Group — who we are, our history, and how we operate.">
+  <link rel="canonical" href="https://theerfg.com/about">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://theerfg.com/about">
+  <meta property="og:title" content="About Us | Engine Room Financial Group">
+  <meta property="og:description" content="Learn about Engine Room Financial Group — who we are, our history, and how we operate.">
+  <meta property="og:image" content="https://cdn.b12.io/client_media/aiIZype9/11c36e8d-1bd0-11f1-87a5-0242ac110002-TEG_Logo.V6.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About Us | Engine Room Financial Group">
+  <meta name="twitter:description" content="Learn about Engine Room Financial Group — who we are, our history, and how we operate.">
+  <meta name="twitter:image" content="https://cdn.b12.io/client_media/aiIZype9/11c36e8d-1bd0-11f1-87a5-0242ac110002-TEG_Logo.V6.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --bg: #141414;
+      --card-bg: #1e1e1e;
+      --accent: #C87533;
+      --accent-hover: #D4953D;
+      --white: #ffffff;
+      --border: rgba(255,255,255,0.08);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.6);
+      --text-muted: rgba(255,255,255,0.4);
+      --max-width: 1200px;
+      --radius: 12px;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      color: var(--text-primary);
+      line-height: 1.7;
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .divider {
+      width: 64px;
+      height: 3px;
+      background: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .divider-center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20, 20, 20, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 0 24px;
+      transition: box-shadow 0.3s;
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 140px;
+      max-width: 1400px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      height: 120px;
+    }
+
+    .logo-img {
+      height: 245px;
+      width: auto;
+      mix-blend-mode: lighten;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav a:hover { color: var(--accent); }
+
+    .nav .btn-cta {
+      display: inline-block;
+      padding: 10px 24px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 2px solid var(--accent);
+      transition: all 0.25s;
+    }
+    .nav .btn-cta:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(200,117,51,0.35);
+      color: var(--bg);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      margin: 5px 0;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 140px;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .mobile-nav.active { display: flex; }
+
+    .mobile-nav a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-nav a:last-child { border-bottom: none; }
+
+    .mobile-nav .btn-cta {
+      display: inline-block;
+      text-align: center;
+      margin-top: 8px;
+      border-bottom: none;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    /* ===== HERO ===== */
+    .about-hero {
+      padding: 200px 24px 80px;
+      background: var(--bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      transition: color 0.2s;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .about-hero .back-link:hover { color: var(--accent-hover); }
+
+    .about-hero h1 {
+      font-size: 3.75rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .about-hero .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ===== ABOUT SECTIONS ===== */
+    .about-section {
+      padding: 80px 24px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .about-section .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .about-content-placeholder {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px 32px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .about-content-placeholder:hover {
+      border-color: rgba(200,117,51,0.3);
+      transform: translateY(-2px);
+    }
+
+    .about-content-placeholder p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-style: italic;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .about-cta {
+      padding: 80px 24px;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .about-cta .section-title {
+      margin-bottom: 16px;
+    }
+
+    .about-cta p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 540px;
+      margin: 0 auto 32px;
+      line-height: 1.8;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid var(--accent);
+      transition: all 0.25s;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(200,117,51,0.35);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--bg);
+      color: var(--white);
+      padding: 64px 24px 32px;
+      border-top: 1px solid var(--border);
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 40px;
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-brand .logo { margin-bottom: 4px; }
+
+    .footer-logo-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .footer h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer ul li {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer ul a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+
+    .footer ul a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.35);
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== CUSTOM CURSOR ===== */
+    * { cursor: none !important; }
+
+    #custom-cursor {
+      pointer-events: none;
+      z-index: 99999;
+      opacity: 0;
+      background: rgb(200, 117, 51);
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
+      position: fixed;
+      transform: translate(-50%, -50%);
+    }
+
+    #custom-cursor.cursor-hover {
+      opacity: 0.6;
+      background: rgb(212, 149, 61);
+      width: 44px;
+      height: 44px;
+    }
+
+    #custom-cursor-dot {
+      pointer-events: none;
+      z-index: 100000;
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: rgb(200, 117, 51);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      * { cursor: auto !important; }
+      #custom-cursor, #custom-cursor-dot { display: none !important; }
+    }
+
+    /* ===== PARTICLES ===== */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(200, 117, 51, 0.3);
+      border-radius: 50%;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+      50% { transform: translate(20px, -30px); opacity: 0.6; }
+    }
+
+    /* ===== SCROLL PROGRESS ===== */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+      z-index: 10001;
+      width: 0%;
+      transition: width 0.1s;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .nav { display: none; }
+      .mobile-toggle { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .about-hero h1 { font-size: 2.2rem; }
+      .about-hero { padding: 160px 20px 64px; }
+      .section-title { font-size: 1.85rem; }
+      .about-section { padding: 64px 20px; }
+      .about-cta { padding: 64px 20px; }
+      .about-content-placeholder { padding: 32px 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor"></div>
+  <div id="custom-cursor-dot"></div>
+
+  <!-- Decorative Particles -->
+  <div id="particles" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="https://theerfg.com" class="logo">
+        <img src="https://cdn.b12.io/client_media/aiIZype9/11c36e8d-1bd0-11f1-87a5-0242ac110002-TEG_Logo.V6.png" alt="Engine Room Financial Group" class="logo-img">
+      </a>
+      <nav class="nav">
+        <a href="https://theerfg.com#services">Services</a>
+        <a href="https://theerfg.com#industries">Who We Serve</a>
+        <a href="https://theerfg.com#methodology">How We Work</a>
+        <a href="https://theerfg.com#results">Results</a>
+        <a href="https://theerfg.com#contact">Contact</a>
+        <a href="https://theerfg.com#contact" class="btn-cta">Get In Touch</a>
+      </nav>
+      <button class="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav">
+    <a href="https://theerfg.com#services">Services</a>
+    <a href="https://theerfg.com#industries">Who We Serve</a>
+    <a href="https://theerfg.com#methodology">How We Work</a>
+    <a href="https://theerfg.com#results">Results</a>
+    <a href="https://theerfg.com#contact">Contact</a>
+    <a href="https://theerfg.com#contact" class="btn-cta">Get In Touch</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <a href="https://theerfg.com" class="back-link">&larr; Back to Home</a>
+      <h1>About Engine Room Financial Group</h1>
+      <div class="divider divider-center"></div>
+      <p class="subtitle">Who we are, where we come from, and how we operate.</p>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-title">Our Story</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="about-content-placeholder">
+        <p>Content coming soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE OUR INCOME COMES FROM -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Revenue</p>
+        <h2 class="section-title">Where Our Income Comes From</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="about-content-placeholder">
+        <p>Content coming soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR HISTORY -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">History</p>
+        <h2 class="section-title">Our Journey</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="about-content-placeholder">
+        <p>Content coming soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <div class="container">
+      <p class="section-label">Get Started</p>
+      <h2 class="section-title">Ready to Work Together?</h2>
+      <div class="divider divider-center"></div>
+      <p>Get in touch and let's talk about how we can support your business.</p>
+      <a href="https://theerfg.com#contact" class="btn-primary">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-logo-text">
+          <span>Engine Room</span><br>
+          <span>Financial Group</span>
+        </div>
+        <p>The financial backbone for service-based businesses.</p>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://theerfg.com#services">Accounts Payable</a></li>
+          <li><a href="https://theerfg.com#services">Payroll</a></li>
+          <li><a href="https://theerfg.com#services">Financial Reporting</a></li>
+          <li><a href="https://theerfg.com#services">Cash Flow Support</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://theerfg.com#industries">Who We Serve</a></li>
+          <li><a href="https://theerfg.com#methodology">How We Work</a></li>
+          <li><a href="https://theerfg.com#results">Results</a></li>
+          <li><a href="https://theerfg.com#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:6464506051">646-450-6051</a></li>
+          <li><a href="mailto:getintouch@TheERFG.com">getintouch@TheERFG.com</a></li>
+          <li>456A Central Ave Suite 115, Cedarhurst, NY 11516</li>
+          <li><a href="https://theerfg.com#contact">Get In Touch</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 The Engine Room Financial Group. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('custom-cursor');
+    const cursorDot = document.getElementById('custom-cursor-dot');
+
+    if (cursor && cursorDot) {
+      let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+      let cursorActive = false;
+
+      function enableCursor() {
+        if (cursorActive) return;
+        cursorActive = true;
+        cursor.style.display = '';
+        cursorDot.style.display = '';
+      }
+
+      function disableCursor() {
+        cursorActive = false;
+        cursor.style.opacity = '0';
+        cursorDot.style.opacity = '0';
+        document.documentElement.style.cursor = 'auto';
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        enableCursor();
+        targetX = e.clientX;
+        targetY = e.clientY;
+        cursorDot.style.left = targetX + 'px';
+        cursorDot.style.top = targetY + 'px';
+        cursor.style.opacity = '0.85';
+        cursorDot.style.opacity = '1';
+      });
+
+      document.addEventListener('touchstart', () => disableCursor(), { passive: true });
+
+      function animateCursor() {
+        currentX += (targetX - currentX) * 0.35;
+        currentY += (targetY - currentY) * 0.35;
+        cursor.style.left = currentX + 'px';
+        cursor.style.top = currentY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      document.querySelectorAll('a, button, [role="button"], input, select, textarea').forEach((el) => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        cursorDot.style.opacity = '0';
+      });
+      document.addEventListener('mouseenter', () => {
+        if (cursorActive) {
+          cursor.style.opacity = '0.85';
+          cursorDot.style.opacity = '1';
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    if (mobileToggle && mobileNav) {
+      mobileToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.mobile-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('active');
+          mobileToggle.classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobileNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+          mobileNav.classList.remove('active');
+          mobileToggle.classList.remove('active');
+        }
+      });
+    }
+
+    // Header shadow on scroll
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.3)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // Scroll progress bar
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      scrollProgress.style.width = progress + '%';
+    });
+
+    // Generate particles
+    const particlesContainer = document.getElementById('particles');
+    if (particlesContainer) {
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = (Math.random() * 100) + '%';
+        particle.style.top = (Math.random() * 100) + '%';
+        const duration = (4 + Math.random() * 6).toFixed(2);
+        const delay = (Math.random() * 5).toFixed(2);
+        particle.style.animation = `${duration}s ease-in-out ${delay}s infinite drift`;
+        particlesContainer.appendChild(particle);
+      }
+    }
+  </script>
+</body>
+</html>
