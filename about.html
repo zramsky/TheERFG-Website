@@ -1016,23 +1016,21 @@
 
     // ── Custom cursor ──
     var cursor = document.getElementById('custom-cursor');
-    var cursorDot = document.getElementById('custom-cursor-dot');
 
-    if (cursor && cursorDot) {
+    if (cursor) {
       var targetX = 0, targetY = 0, currentX = 0, currentY = 0;
       var cursorActive = false;
 
       function enableCursor() {
         if (cursorActive) return;
         cursorActive = true;
+        document.documentElement.style.cursor = '';
         cursor.style.display = '';
-        cursorDot.style.display = '';
       }
 
       function disableCursor() {
         cursorActive = false;
         cursor.style.opacity = '0';
-        cursorDot.style.opacity = '0';
         document.documentElement.style.cursor = 'auto';
       }
 
@@ -1040,10 +1038,7 @@
         enableCursor();
         targetX = e.clientX;
         targetY = e.clientY;
-        cursorDot.style.left = targetX + 'px';
-        cursorDot.style.top = targetY + 'px';
         cursor.style.opacity = '0.85';
-        cursorDot.style.opacity = '1';
       });
 
       document.addEventListener('touchstart', function() { disableCursor(); }, { passive: true });
@@ -1064,12 +1059,10 @@
 
       document.addEventListener('mouseleave', function() {
         cursor.style.opacity = '0';
-        cursorDot.style.opacity = '0';
       });
       document.addEventListener('mouseenter', function() {
         if (cursorActive) {
           cursor.style.opacity = '0.85';
-          cursorDot.style.opacity = '1';
         }
       });
     }
