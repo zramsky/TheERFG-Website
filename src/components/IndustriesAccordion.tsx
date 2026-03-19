@@ -107,7 +107,7 @@ function IndustryCard({
 
   return (
     <div
-      className={`bg-[#1e1e1e] border rounded-xl transition-all duration-300 overflow-hidden card-glow ${
+      className={`bg-[#202530] border rounded-xl transition-all duration-300 overflow-hidden card-glow ${
         isOpen
           ? 'border-[#C87533]/50 shadow-[0_4px_20px_rgba(200,117,51,0.1)]'
           : 'border-[rgba(255,255,255,0.08)] hover:border-[#C87533]/30 hover:-translate-y-0.5'
