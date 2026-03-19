@@ -3,14 +3,14 @@ import LucideIcon from './LucideIcon';
 import ContactForm from './ContactForm';
 ---
 
-<section class="py-20 px-6 bg-[#1C212C]" id="contact">
+<section class="pt-8 pb-20 px-6 bg-[#F4F2ED]" id="contact">
   <div class="max-w-[1200px] mx-auto">
     <div class="text-center mb-14" data-animate>
       <p class="uppercase text-xs font-bold tracking-[3px] text-accent mb-3">
         Contact
       </p>
       <h2
-        class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+        class="text-[1.85rem] md:text-[3rem] font-bold text-[#1A1F2E] mb-4 leading-tight tracking-tight font-serif"
       >
         Let's Talk Operations
       </h2>
@@ -20,7 +20,7 @@ import ContactForm from './ContactForm';
     <!-- Contact Form Card -->
     <div class="max-w-[700px] mx-auto mb-14">
       <div
-        class="bg-card-bg rounded-2xl p-10 border border-card-border"
+        class="bg-card-bg rounded-2xl p-10 border border-card-border shadow-[0_2px_8px_rgba(26,31,46,0.06)]"
       >
         <ContactForm client:load />
       </div>
@@ -28,27 +28,27 @@ import ContactForm from './ContactForm';
 
     <!-- Contact Info Below -->
     <div class="max-w-[850px] mx-auto">
-      <p class="text-white/60 mb-9 leading-relaxed text-center">
+      <p class="text-[#5A6070] mb-9 leading-relaxed text-center">
         Prefer to reach out directly? Contact us by phone or email and we will respond within one business day.
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
         <div class="flex items-start gap-4 min-w-0">
           <div
-            class="w-11 h-11 bg-accent/15 rounded-xl flex items-center justify-center shrink-0"
+            class="w-11 h-11 bg-[rgba(184,148,63,0.10)] rounded-xl flex items-center justify-center shrink-0"
           >
             <LucideIcon name="Mail" size={20} className="text-accent" />
           </div>
           <div class="min-w-0">
             <div
-              class="text-xs text-white/40 uppercase tracking-[1px] font-semibold mb-0.5"
+              class="text-xs text-[#8A8F9E] uppercase tracking-[1px] font-semibold mb-0.5"
             >
               Email
             </div>
-            <div class="text-[0.95rem] text-white font-medium">
+            <div class="text-[0.95rem] text-[#1A1F2E] font-medium">
               <a
                 href="mailto:getintouch@TheERFG.com"
-                class="hover:text-accent transition-colors"
+                class="hover:text-[#B8943F] transition-colors"
               >
                 getintouch@TheERFG.com
               </a>
@@ -58,20 +58,20 @@ import ContactForm from './ContactForm';
 
         <div class="flex items-start gap-4 min-w-0">
           <div
-            class="w-11 h-11 bg-accent/15 rounded-xl flex items-center justify-center shrink-0"
+            class="w-11 h-11 bg-[rgba(184,148,63,0.10)] rounded-xl flex items-center justify-center shrink-0"
           >
             <LucideIcon name="Phone" size={20} className="text-accent" />
           </div>
           <div class="min-w-0">
             <div
-              class="text-xs text-white/40 uppercase tracking-[1px] font-semibold mb-0.5"
+              class="text-xs text-[#8A8F9E] uppercase tracking-[1px] font-semibold mb-0.5"
             >
               Phone
             </div>
-            <div class="text-[0.95rem] text-white font-medium">
+            <div class="text-[0.95rem] text-[#1A1F2E] font-medium">
               <a
                 href="tel:6464506051"
-                class="hover:text-accent transition-colors"
+                class="hover:text-[#B8943F] transition-colors"
               >
                 646-450-6051
               </a>
@@ -81,17 +81,17 @@ import ContactForm from './ContactForm';
 
         <div class="flex items-start gap-4 min-w-0">
           <div
-            class="w-11 h-11 bg-accent/15 rounded-xl flex items-center justify-center shrink-0"
+            class="w-11 h-11 bg-[rgba(184,148,63,0.10)] rounded-xl flex items-center justify-center shrink-0"
           >
             <LucideIcon name="MapPin" size={20} className="text-accent" />
           </div>
           <div class="min-w-0">
             <div
-              class="text-xs text-white/40 uppercase tracking-[1px] font-semibold mb-0.5"
+              class="text-xs text-[#8A8F9E] uppercase tracking-[1px] font-semibold mb-0.5"
             >
               Address
             </div>
-            <div class="text-[0.95rem] text-white font-medium">
+            <div class="text-[0.95rem] text-[#1A1F2E] font-medium">
               456A Central Ave Suite 115, Cedarhurst, NY 11516
             </div>
           </div>

@@ -22,7 +22,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -30,94 +30,15 @@ const {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#161B26">
+    <meta name="theme-color" content="#141C2B">
   </head>
-  <body class="text-white leading-relaxed bg-page-bg">
+  <body class="text-[#1A1F2E] leading-relaxed bg-page-bg">
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
-
-    <!-- Custom Cursor -->
-    <div id="custom-cursor"></div>
-    <div id="custom-cursor-dot"></div>
-
-    <!-- Decorative Particles -->
-    <div id="particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true"></div>
 
     <slot />
 
     <script>
-      // ========================================
-      // CUSTOM CURSOR
-      // ========================================
-      const cursor = document.getElementById('custom-cursor');
-      const cursorDot = document.getElementById('custom-cursor-dot');
-
-      if (cursor && cursorDot) {
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        let cursorActive = false;
-
-        function enableCursor() {
-          if (cursorActive) return;
-          cursorActive = true;
-          document.documentElement.style.cursor = '';
-          cursor.style.display = '';
-          cursorDot.style.display = '';
-        }
-
-        function disableCursor() {
-          cursorActive = false;
-          cursor.style.opacity = '0';
-          cursorDot.style.opacity = '0';
-          document.documentElement.style.cursor = 'auto';
-        }
-
-        // Show custom cursor on mouse movement (works on Windows touch+mouse devices)
-        document.addEventListener('mousemove', (e) => {
-          enableCursor();
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-          cursorDot.style.left = `${mouseX}px`;
-          cursorDot.style.top = `${mouseY}px`;
-          cursor.style.opacity = '0.85';
-          cursorDot.style.opacity = '1';
-        });
-
-        // Hide custom cursor when touch is used
-        document.addEventListener('touchstart', () => {
-          disableCursor();
-        }, { passive: true });
-
-        // Smooth follow for the ring
-        function animateCursor() {
-          cursorX += (mouseX - cursorX) * 0.35;
-          cursorY += (mouseY - cursorY) * 0.35;
-          cursor.style.left = `${cursorX}px`;
-          cursor.style.top = `${cursorY}px`;
-          requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Hover effect on interactive elements
-        const hoverTargets = document.querySelectorAll('a, button, [role="button"], input, select, textarea');
-        hoverTargets.forEach((el) => {
-          el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-          el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
-        });
-
-        // Hide cursor when leaving window
-        document.addEventListener('mouseleave', () => {
-          cursor.style.opacity = '0';
-          cursorDot.style.opacity = '0';
-        });
-        document.addEventListener('mouseenter', () => {
-          if (cursorActive) {
-            cursor.style.opacity = '0.85';
-            cursorDot.style.opacity = '1';
-          }
-        });
-      }
-
       // ========================================
       // SCROLL PROGRESS BAR
       // ========================================
@@ -264,23 +185,6 @@ const {
       document.querySelectorAll('[data-count]').forEach((el) => {
         counterObserver.observe(el);
       });
-
-      // ========================================
-      // FLOATING PARTICLES
-      // ========================================
-      const particlesContainer = document.getElementById('particles');
-      if (particlesContainer) {
-        for (let i = 0; i < 20; i++) {
-          const particle = document.createElement('div');
-          particle.classList.add('particle');
-          particle.style.left = `${Math.random() * 100}%`;
-          particle.style.top = `${Math.random() * 100}%`;
-          particle.style.animationDuration = `${4 + Math.random() * 6}s`;
-          particle.style.animationDelay = `${Math.random() * 5}s`;
-          particle.style.animation = `drift ${4 + Math.random() * 6}s ease-in-out ${Math.random() * 5}s infinite`;
-          particlesContainer.appendChild(particle);
-        }
-      }
     </script>
 
     <style is:global>

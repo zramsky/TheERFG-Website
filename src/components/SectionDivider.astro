@@ -1,0 +1,35 @@
+---
+interface Props {
+  type?: 'curve' | 'slant' | 'ornament';
+  fillColor?: string;
+  bgColor?: string;
+  flip?: boolean;
+}
+const { type = 'slant', fillColor = '#FAFAF7', bgColor = 'transparent', flip = false } = Astro.props;
+---
+
+{type === 'ornament' && (
+  <div class="py-10 flex items-center justify-center gap-4" aria-hidden="true">
+    <div class="h-[1px] w-16 bg-[#B8943F]/40"></div>
+    <svg viewBox="0 0 16 16" class="w-3 h-3 text-[#B8943F]/60" fill="currentColor">
+      <rect x="3" y="3" width="10" height="10" rx="1" transform="rotate(45 8 8)" />
+    </svg>
+    <div class="h-[1px] w-16 bg-[#B8943F]/40"></div>
+  </div>
+)}
+
+{type === 'slant' && (
+  <div class={`w-full overflow-hidden leading-[0]`} style={`background-color: ${bgColor}`} aria-hidden="true">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" class={`w-full h-[32px] md:h-[48px] block ${flip ? 'scale-x-[-1]' : ''}`}>
+      <polygon points="0,48 1440,0 1440,48" fill={fillColor}></polygon>
+    </svg>
+  </div>
+)}
+
+{type === 'curve' && (
+  <div class={`w-full overflow-hidden leading-[0]`} style={`background-color: ${bgColor}`} aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-[40px] md:h-[60px] block">
+      <path d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z" fill={fillColor}></path>
+    </svg>
+  </div>
+)}

@@ -27,7 +27,7 @@ const steps = [
 ];
 ---
 
-<section class="py-20 px-6 bg-page-bg border-t border-white/[0.05]" id="methodology">
+<section class="pt-8 pb-20 px-6 bg-page-bg" id="methodology">
   <div class="max-w-[1200px] mx-auto">
     <div class="text-center mb-14">
       <p
@@ -37,7 +37,7 @@ const steps = [
         How We Work
       </p>
       <h2
-        class="text-[1.85rem] md:text-[3rem] font-bold text-white mb-4 leading-tight tracking-tight font-serif"
+        class="text-[1.85rem] md:text-[3rem] font-bold text-[#1A1F2E] mb-4 leading-tight tracking-tight font-serif"
         data-anim="fade-up"
         style="transition-delay: 100ms"
       >
@@ -45,7 +45,7 @@ const steps = [
       </h2>
       <div class="w-16 h-[3px] bg-accent mx-auto mb-4 divider-animate"></div>
       <p
-        class="text-xl text-white/60 max-w-[640px] mx-auto leading-relaxed"
+        class="text-xl text-[#5A6070] max-w-[640px] mx-auto leading-relaxed"
         data-anim="fade-up"
         style="transition-delay: 200ms"
       >
@@ -58,7 +58,7 @@ const steps = [
     >
       <!-- Connecting line (hidden on mobile) -->
       <div
-        class="hidden lg:block absolute top-7 left-[15%] right-[15%] h-0.5 bg-accent/30 z-0 connecting-line"
+        class="hidden lg:block absolute top-7 left-[15%] right-[15%] h-0.5 bg-[#E0DDD7] z-0 connecting-line"
       >
       </div>
 
@@ -66,15 +66,15 @@ const steps = [
         steps.map((step, i) => (
           <div class="text-center px-4 py-6 relative z-10" data-anim="fade-up" style={`transition-delay: ${i * 150}ms`}>
             <div
-              class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center text-xl font-extrabold mx-auto mb-5 shadow-[0_4px_12px_rgba(200,117,51,0.3)] font-sans step-number"
+              class="w-14 h-14 bg-[#1A1F2E] text-white rounded-full flex items-center justify-center text-xl font-extrabold mx-auto mb-5 shadow-[0_4px_12px_rgba(26,31,46,0.2)] font-sans step-number"
               style={`animation-delay: ${i * 200 + 800}ms`}
             >
               {step.number}
             </div>
-            <h3 class="text-lg font-bold text-white mb-2.5 font-serif">
+            <h3 class="text-lg font-bold text-[#1A1F2E] mb-2.5 font-serif">
               {step.title}
             </h3>
-            <p class="text-[0.95rem] text-white/60 leading-relaxed">
+            <p class="text-[0.95rem] text-[#5A6070] leading-relaxed">
               {step.description}
             </p>
           </div>
@@ -85,7 +85,7 @@ const steps = [
     <div class="text-center" data-anim="fade-up" style="transition-delay: 600ms">
       <a
         href="#contact"
-        class="inline-block px-8 py-3.5 bg-accent text-[#161B26] rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250 cta-pulse"
+        class="inline-block px-8 py-3.5 bg-[#1A1F2E] text-white rounded-lg font-semibold text-[0.95rem] border-2 border-[#1A1F2E] hover:bg-[#2A3040] hover:border-[#2A3040] hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(26,31,46,0.2)] transition-all duration-250"
       >
         Start Your Engine
       </a>

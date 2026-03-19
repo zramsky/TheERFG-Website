@@ -107,10 +107,10 @@ function IndustryCard({
 
   return (
     <div
-      className={`bg-[#202530] border rounded-xl transition-all duration-300 overflow-hidden card-glow ${
+      className={`bg-white border rounded-xl transition-all duration-300 overflow-hidden shadow-[0_1px_3px_rgba(26,31,46,0.04)] card-glow ${
         isOpen
-          ? 'border-[#C87533]/50 shadow-[0_4px_20px_rgba(200,117,51,0.1)]'
-          : 'border-[rgba(255,255,255,0.08)] hover:border-[#C87533]/30 hover:-translate-y-0.5'
+          ? 'border-[#B8943F]/50 shadow-[0_4px_20px_rgba(26,31,46,0.08)]'
+          : 'border-[#E8E6E1] hover:border-[#B8943F]/30 hover:-translate-y-0.5'
       }`}
     >
       <button
@@ -120,20 +120,20 @@ function IndustryCard({
         <span
           className={`w-10 h-10 rounded-[10px] flex items-center justify-center shrink-0 transition-all duration-300 ${
             isOpen
-              ? 'bg-[#C87533] shadow-[0_0_12px_rgba(200,117,51,0.4)]'
-              : 'bg-[rgba(200,117,51,0.15)] group-hover:bg-[rgba(200,117,51,0.25)]'
+              ? 'bg-[#B8943F] shadow-[0_0_12px_rgba(184,148,63,0.4)]'
+              : 'bg-[rgba(184,148,63,0.10)] group-hover:bg-[rgba(184,148,63,0.18)]'
           }`}
         >
           <Icon
             size={20}
             className={`transition-colors duration-300 ${
-              isOpen ? 'text-white' : 'text-[#C87533]'
+              isOpen ? 'text-white' : 'text-[#B8943F]'
             }`}
           />
         </span>
         <h3
           className={`text-lg font-bold transition-colors duration-300 ${
-            isOpen ? 'text-[#C87533]' : 'text-white group-hover:text-[#C87533]'
+            isOpen ? 'text-[#B8943F]' : 'text-[#1A1F2E] group-hover:text-[#B8943F]'
           }`}
           style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
         >
@@ -150,10 +150,10 @@ function IndustryCard({
           {industry.items.map((item) => (
             <li
               key={item}
-              className="text-[0.95rem] text-white/60 pl-[22px] relative leading-relaxed py-1"
-              style={{ fontFamily: "'Lora', Georgia, serif" }}
+              className="text-[0.95rem] text-[#5A6070] pl-[22px] relative leading-relaxed py-1"
+              style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}
             >
-              <span className="absolute left-0 top-[13px] w-1.5 h-1.5 bg-[#C87533] rounded-full" />
+              <span className="absolute left-0 top-[13px] w-1.5 h-1.5 bg-[#B8943F] rounded-full" />
               {item}
             </li>
           ))}

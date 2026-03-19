@@ -74,8 +74,8 @@ export default function ContactForm() {
   if (isSuccess) {
     return (
       <div className="text-center py-8">
-        <h3 className="text-2xl font-bold text-accent mb-2.5 font-serif">Received.</h3>
-        <p className="text-white/60">
+        <h3 className="text-2xl font-bold text-[#B8943F] mb-2.5 font-serif">Received.</h3>
+        <p className="text-[#5A6070]">
           We will be in touch within one business day.
         </p>
       </div>
@@ -83,14 +83,14 @@ export default function ContactForm() {
   }
 
   const inputClasses =
-    'w-full px-4 py-3 border-[1.5px] border-white/15 rounded-lg text-[0.95rem] text-white bg-[#2C313C] transition-all duration-200 focus:outline-none focus:border-accent focus:bg-[#353A45] focus:ring-[3px] focus:ring-accent/10 placeholder:text-white/30';
+    'w-full px-4 py-3 border-[1.5px] border-[#D0CEC8] rounded-lg text-[0.95rem] text-[#1A1F2E] bg-[#F7F6F3] transition-all duration-200 focus:outline-none focus:border-[#B8943F] focus:bg-white focus:ring-[3px] focus:ring-[#B8943F]/10 placeholder:text-[#8A8F9E]';
 
   const selectClasses =
-    'w-full px-4 py-3 border-[1.5px] border-white/15 rounded-lg text-[0.95rem] text-white bg-[#2C313C] transition-all duration-200 focus:outline-none focus:border-accent focus:bg-[#353A45] focus:ring-[3px] focus:ring-accent/10 placeholder:text-white/30 appearance-none';
+    'w-full px-4 py-3 border-[1.5px] border-[#D0CEC8] rounded-lg text-[0.95rem] text-[#1A1F2E] bg-[#F7F6F3] transition-all duration-200 focus:outline-none focus:border-[#B8943F] focus:bg-white focus:ring-[3px] focus:ring-[#B8943F]/10 placeholder:text-[#8A8F9E] appearance-none';
 
   return (
     <div>
-      <h3 className="text-xl font-bold text-white mb-7 font-serif">
+      <h3 className="text-xl font-bold text-[#1A1F2E] mb-7 font-serif">
         Get In Touch
       </h3>
       <form onSubmit={handleSubmit}>
@@ -102,7 +102,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="name"
-            className="block text-sm font-semibold text-white/70 mb-1.5"
+            className="block text-sm font-semibold text-[#5A6070] mb-1.5"
           >
             Full Name<span className="text-accent ml-0.5">*</span>
           </label>
@@ -119,7 +119,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="email"
-            className="block text-sm font-semibold text-white/70 mb-1.5"
+            className="block text-sm font-semibold text-[#5A6070] mb-1.5"
           >
             Email Address<span className="text-accent ml-0.5">*</span>
           </label>
@@ -136,7 +136,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="company"
-            className="block text-sm font-semibold text-white/70 mb-1.5"
+            className="block text-sm font-semibold text-[#5A6070] mb-1.5"
           >
             Company Name<span className="text-accent ml-0.5">*</span>
           </label>
@@ -153,7 +153,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="industry"
-            className="block text-sm font-semibold text-white/70 mb-1.5"
+            className="block text-sm font-semibold text-[#5A6070] mb-1.5"
           >
             Industry<span className="text-accent ml-0.5">*</span>
           </label>
@@ -164,7 +164,7 @@ export default function ContactForm() {
             defaultValue=""
             className={selectClasses}
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(26,31,46,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'right 12px center',
               paddingRight: '36px',
@@ -184,7 +184,7 @@ export default function ContactForm() {
         <div className="mb-5">
           <label
             htmlFor="message"
-            className="block text-sm font-semibold text-white/70 mb-1.5"
+            className="block text-sm font-semibold text-[#5A6070] mb-1.5"
           >
             Tell Us About Your Business<span className="text-accent ml-0.5">*</span>
           </label>
@@ -206,11 +206,11 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-4 mt-2 bg-accent text-[#161B26] rounded-lg font-semibold text-base border-2 border-accent hover:bg-accent-hover hover:border-accent-hover hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(200,117,51,0.35)] transition-all duration-250 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
+          className="w-full py-4 mt-2 bg-[#1A1F2E] text-white rounded-lg font-semibold text-base border-2 border-[#1A1F2E] hover:bg-[#2A3040] hover:border-[#2A3040] hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(26,31,46,0.2)] transition-all duration-250 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
         >
           {isSubmitting ? 'Sending...' : 'Get In Touch'}
         </button>
-        <p className="text-sm text-white/40 text-center mt-4">We will respond within one business day.</p>
+        <p className="text-sm text-[#8A8F9E] text-center mt-4">We will respond within one business day.</p>
       </form>
     </div>
   );

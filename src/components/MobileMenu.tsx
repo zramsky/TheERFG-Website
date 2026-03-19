@@ -38,7 +38,6 @@ export default function MobileMenu() {
     { href: '#services', label: 'Services' },
     { href: '#industries', label: 'Who We Serve' },
     { href: '#methodology', label: 'How We Work' },
-    { href: '#results', label: 'Results' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -71,7 +70,7 @@ export default function MobileMenu() {
       {/* Backdrop overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-[#0C111C]/50 z-[998]"
+          className="fixed inset-0 bg-[#1A1F2E]/30 z-[998]"
           onClick={closeMenu}
           aria-hidden="true"
         />
@@ -81,14 +80,14 @@ export default function MobileMenu() {
       {isOpen && (
         <div
           ref={menuRef}
-          className="fixed top-[140px] left-0 right-0 bg-[#202530] border-b border-white/[0.08] p-6 z-[999] flex flex-col gap-3 shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+          className="fixed top-[140px] left-0 right-0 bg-white border-b border-[#E8E6E1] p-6 z-[999] flex flex-col gap-3 shadow-[0_8px_30px_rgba(26,31,46,0.12)]"
         >
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={closeMenu}
-              className="text-base font-medium text-white/70 py-2.5 border-b border-white/[0.08] no-underline hover:text-accent"
+              className="text-base font-medium text-[#5A6070] py-2.5 border-b border-[#E8E6E1] no-underline hover:text-[#1A1F2E]"
             >
               {link.label}
             </a>
@@ -96,7 +95,7 @@ export default function MobileMenu() {
           <a
             href="#contact"
             onClick={closeMenu}
-            className="inline-block text-center mt-2 px-8 py-3.5 bg-accent text-[#161B26] rounded-lg font-semibold text-[0.95rem] border-2 border-accent hover:bg-accent-hover hover:border-accent-hover no-underline transition-all duration-250"
+            className="inline-block text-center mt-2 px-8 py-3.5 bg-[#1A1F2E] text-white rounded-lg font-semibold text-[0.95rem] border-2 border-[#1A1F2E] hover:bg-[#2A3040] hover:border-[#2A3040] no-underline transition-all duration-250"
           >
             Get In Touch
           </a>
