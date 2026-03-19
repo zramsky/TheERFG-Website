@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#161B26">
+  <meta name="theme-color" content="#141C2B">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -27,25 +27,25 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     /* ===== VARIABLES ===== */
     :root {
-      --bg: #161B26;
-      --card-bg: #202530;
-      --accent: #C87533;
-      --accent-hover: #D4953D;
-      --gold: #c9922a;
-      --gold-light: #e0ae48;
+      --bg: #FAFAF7;
+      --card-bg: #FFFFFF;
+      --accent: #B8943F;
+      --accent-hover: #C9A44E;
+      --gold: #B8943F;
+      --gold-light: #C9A44E;
       --gold-pale: #f7eed8;
       --white: #ffffff;
-      --border: rgba(255,255,255,0.08);
-      --text-primary: #ffffff;
-      --text-secondary: rgba(255,255,255,0.6);
-      --text-muted: rgba(255,255,255,0.4);
+      --border: #E8E6E1;
+      --text-primary: #1A1F2E;
+      --text-secondary: #5A6070;
+      --text-muted: #8A8F9E;
       --max-width: 1200px;
       --radius: 12px;
-      --rule: rgba(255,255,255,0.12);
+      --rule: #E0DDD7;
     }
 
     /* ===== RESET & BASE ===== */
@@ -53,7 +53,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Outfit', 'Lora', Georgia, serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
       color: var(--text-primary);
       line-height: 1.75;
       background: var(--bg);
@@ -71,10 +71,10 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(22, 27, 38, 0.97);
+      background: #141C2B;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       z-index: 1000;
       padding: 0 24px;
       transition: box-shadow 0.3s;
@@ -123,7 +123,7 @@
       display: inline-block;
       padding: 10px 24px;
       background: var(--accent);
-      color: var(--bg);
+      color: #141C2B;
       border-radius: 8px;
       font-weight: 600;
       font-size: 0.85rem;
@@ -134,8 +134,8 @@
       background: var(--accent-hover);
       border-color: var(--accent-hover);
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(200,117,51,0.35);
-      color: var(--bg);
+      box-shadow: 0 4px 12px rgba(184,148,63,0.35);
+      color: #141C2B;
     }
 
     .mobile-toggle {
@@ -163,13 +163,13 @@
       top: 140px;
       left: 0;
       right: 0;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      background: #141C2B;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       padding: 24px;
       z-index: 999;
       flex-direction: column;
       gap: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 30px rgba(26,31,46,0.3);
       font-family: 'Inter', system-ui, sans-serif;
     }
 
@@ -180,7 +180,7 @@
       font-weight: 500;
       color: rgba(255,255,255,0.7);
       padding: 10px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .mobile-nav a:last-child { border-bottom: none; }
@@ -192,7 +192,7 @@
       border-bottom: none;
       padding: 12px 24px;
       background: var(--accent);
-      color: var(--bg);
+      color: #141C2B;
       border-radius: 8px;
       font-weight: 600;
     }
@@ -200,7 +200,7 @@
     /* ===== HERO ===== */
     .about-hero {
       padding: 200px 24px 80px;
-      background: #0C111C;
+      background: #141C2B;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -364,7 +364,7 @@
       font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
       font-size: clamp(1.8rem, 4.5vw, 2.6rem);
       font-weight: 600;
-      color: var(--white);
+      color: var(--text-primary);
       margin-bottom: 0.75rem;
     }
 
@@ -414,7 +414,8 @@
 
     /* ===== NAME BLOCK ===== */
     .name-block {
-      background: #0C111C;
+      background: #F4F2ED;
+      border: 1px solid var(--border);
       border-radius: 6px;
       padding: 2.75rem 2.75rem 2.5rem;
       margin-bottom: 3rem;
@@ -438,7 +439,7 @@
       position: absolute;
       right: -40px; top: -40px;
       width: 180px; height: 180px;
-      opacity: 0.08;
+      opacity: 0.06;
       animation: gearSpin 40s linear infinite reverse;
       pointer-events: none;
     }
@@ -456,7 +457,7 @@
     .name-block p {
       font-size: 1.05rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.8);
+      color: var(--text-secondary);
       line-height: 1.85;
     }
 
@@ -464,7 +465,7 @@
 
     .name-block strong {
       font-weight: 500;
-      color: var(--white);
+      color: var(--text-primary);
     }
 
     /* ===== THREE PILLARS ===== */
@@ -487,7 +488,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 2rem;
       font-weight: 400;
-      color: rgba(201,146,42,0.3);
+      color: rgba(184,148,63,0.3);
       line-height: 1;
       margin-bottom: 0.5rem;
     }
@@ -495,7 +496,7 @@
     .pillar h3 {
       font-size: 0.95rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--text-primary);
       margin-bottom: 0.5rem;
       letter-spacing: 0.02em;
       font-family: 'Inter', system-ui, sans-serif;
@@ -517,7 +518,7 @@
       font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
       font-size: 1.75rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--text-primary);
       margin-bottom: 0.5rem;
     }
 
@@ -561,8 +562,8 @@
 
     /* ===== CTA BLOCK ===== */
     .cta-block {
-      background: rgba(201,146,42,0.08);
-      border: 1px solid rgba(201,146,42,0.2);
+      background: rgba(184,148,63,0.08);
+      border: 1px solid rgba(184,148,63,0.2);
       border-radius: 6px;
       padding: 2rem 2rem 1.75rem;
       text-align: center;
@@ -574,7 +575,7 @@
       content: '';
       position: absolute;
       top: 0; left: -100%; right: -100%; bottom: 0;
-      background: linear-gradient(90deg, transparent, rgba(201,146,42,0.06), transparent);
+      background: linear-gradient(90deg, transparent, rgba(184,148,63,0.06), transparent);
       transform: translateX(-100%);
     }
     .cta-block.cta-shimmer::before {
@@ -589,7 +590,7 @@
       font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
       font-size: 1.6rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--text-primary);
       margin-bottom: 0.5rem;
     }
 
@@ -613,7 +614,7 @@
       align-items: center;
       gap: 7px;
       background: var(--accent);
-      color: var(--bg);
+      color: #FFFFFF;
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 600;
@@ -634,16 +635,16 @@
       border: 1px solid var(--border);
     }
     .cta-link.ghost:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.2);
+      background: rgba(26,31,46,0.04);
+      border-color: var(--text-muted);
     }
 
     /* ===== FOOTER ===== */
     .footer {
-      background: #0C111C;
+      background: #141C2B;
       color: var(--white);
       padding: 64px 24px 32px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(255,255,255,0.08);
       font-family: 'Inter', system-ui, sans-serif;
     }
 
@@ -698,7 +699,7 @@
     .footer ul a:hover { color: var(--white); }
 
     .footer-bottom {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(255,255,255,0.08);
       padding-top: 24px;
       text-align: center;
       font-size: 0.85rem;
@@ -721,14 +722,14 @@
       z-index: 99999;
       transform: translate(-50%, -50%);
       transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
-      background: #C87533;
+      background: #B8943F;
       opacity: 0.85;
     }
 
     #custom-cursor.cursor-hover {
       width: 44px;
       height: 44px;
-      background: #D4953D;
+      background: #C9A44E;
       opacity: 0.6;
     }
 
@@ -844,7 +845,7 @@
     <!-- Name explanation -->
     <div class="name-block reveal">
       <svg class="name-gear" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path fill="white" d="M43.3 5.3l-1.2 7.2a30 30 0 00-7.4 3.1L28.9 12l-9.8 9.8 3.6 5.8a30 30 0 00-3.1 7.4l-7.2 1.2v13.8l7.2 1.2a30 30 0 003.1 7.4l-3.6 5.8 9.8 9.8 5.8-3.6a30 30 0 007.4 3.1l1.2 7.2h13.8l1.2-7.2a30 30 0 007.4-3.1l5.8 3.6 9.8-9.8-3.6-5.8a30 30 0 003.1-7.4l7.2-1.2V43.3l-7.2-1.2a30 30 0 00-3.1-7.4l3.6-5.8-9.8-9.8-5.8 3.6a30 30 0 00-7.4-3.1l-1.2-7.2H43.3zm6.7 24a20.7 20.7 0 110 41.4A20.7 20.7 0 0150 29.3z"/>
+        <path fill="#1A1F2E" d="M43.3 5.3l-1.2 7.2a30 30 0 00-7.4 3.1L28.9 12l-9.8 9.8 3.6 5.8a30 30 0 00-3.1 7.4l-7.2 1.2v13.8l7.2 1.2a30 30 0 003.1 7.4l-3.6 5.8 9.8 9.8 5.8-3.6a30 30 0 007.4 3.1l1.2 7.2h13.8l1.2-7.2a30 30 0 007.4-3.1l5.8 3.6 9.8-9.8-3.6-5.8a30 30 0 003.1-7.4l7.2-1.2V43.3l-7.2-1.2a30 30 0 00-3.1-7.4l3.6-5.8-9.8-9.8-5.8 3.6a30 30 0 00-7.4-3.1l-1.2-7.2H43.3zm6.7 24a20.7 20.7 0 110 41.4A20.7 20.7 0 0150 29.3z"/>
       </svg>
       <p class="name-block-label">Why &ldquo;The Engine Room&rdquo;</p>
       <p>On a ship, the engine room is below deck &mdash; <strong>invisible to everyone on board, yet entirely responsible for keeping the vessel moving.</strong> No passengers see it. No guests think about it. But without it, nothing goes anywhere.</p>
@@ -1099,7 +1100,7 @@
     var header = document.querySelector('.header');
     window.addEventListener('scroll', function() {
       if (window.scrollY > 10) {
-        header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.3)';
+        header.style.boxShadow = '0 2px 12px rgba(26,31,46,0.15)';
       } else {
         header.style.boxShadow = 'none';
       }
