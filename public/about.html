@@ -709,39 +709,6 @@
       margin-right: auto;
     }
 
-    /* ===== CUSTOM CURSOR ===== */
-    * { cursor: none !important; }
-
-    #custom-cursor {
-      position: fixed;
-      width: 24px;
-      height: 24px;
-      border: none;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
-      background: #B8943F;
-      opacity: 0.85;
-    }
-
-    #custom-cursor.cursor-hover {
-      width: 44px;
-      height: 44px;
-      background: #C9A44E;
-      opacity: 0.6;
-    }
-
-    #custom-cursor-dot {
-      display: none;
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      * { cursor: auto !important; }
-      #custom-cursor, #custom-cursor-dot { display: none !important; }
-    }
-
     /* ===== SCROLL PROGRESS ===== */
     #scroll-progress {
       position: fixed;
@@ -776,10 +743,6 @@
 
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
-
-  <!-- Custom Cursor -->
-  <div id="custom-cursor"></div>
-  <div id="custom-cursor-dot"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -1017,59 +980,6 @@
         gear.style.transform = 'translate(-50%, calc(-50% + ' + y + 'px))';
       }
     }, { passive: true });
-
-    // ── Custom cursor ──
-    var cursor = document.getElementById('custom-cursor');
-
-    if (cursor) {
-      var targetX = 0, targetY = 0, currentX = 0, currentY = 0;
-      var cursorActive = false;
-
-      function enableCursor() {
-        if (cursorActive) return;
-        cursorActive = true;
-        document.documentElement.style.cursor = '';
-        cursor.style.display = '';
-      }
-
-      function disableCursor() {
-        cursorActive = false;
-        cursor.style.opacity = '0';
-        document.documentElement.style.cursor = 'auto';
-      }
-
-      document.addEventListener('mousemove', function(e) {
-        enableCursor();
-        targetX = e.clientX;
-        targetY = e.clientY;
-        cursor.style.opacity = '0.85';
-      });
-
-      document.addEventListener('touchstart', function() { disableCursor(); }, { passive: true });
-
-      function animateCursor() {
-        currentX += (targetX - currentX) * 0.35;
-        currentY += (targetY - currentY) * 0.35;
-        cursor.style.left = currentX + 'px';
-        cursor.style.top = currentY + 'px';
-        requestAnimationFrame(animateCursor);
-      }
-      animateCursor();
-
-      document.querySelectorAll('a, button, [role="button"], input, select, textarea').forEach(function(el) {
-        el.addEventListener('mouseenter', function() { cursor.classList.add('cursor-hover'); });
-        el.addEventListener('mouseleave', function() { cursor.classList.remove('cursor-hover'); });
-      });
-
-      document.addEventListener('mouseleave', function() {
-        cursor.style.opacity = '0';
-      });
-      document.addEventListener('mouseenter', function() {
-        if (cursorActive) {
-          cursor.style.opacity = '0.85';
-        }
-      });
-    }
 
     // ── Mobile menu toggle ──
     var mobileToggle = document.querySelector('.mobile-toggle');
