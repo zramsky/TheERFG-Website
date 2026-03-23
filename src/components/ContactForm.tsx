@@ -1,4 +1,13 @@
-import { useState, type FormEvent } from 'react';
+import { useState, useEffect, useRef, type FormEvent } from 'react';
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (element: HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId?: string) => void;
+    };
+  }
+}
 
 /**
  * Contact form using FormSubmit.co (free, unlimited submissions).
@@ -23,13 +32,47 @@ const industries = [
   'Other Service Business',
 ];
 
+const TURNSTILE_SITE_KEY = '0x4AAAAAACvDmDcs7Pt0mjUG';
+
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const renderWidget = () => {
+      if (turnstileRef.current && window.turnstile) {
+        window.turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          'expired-callback': () => setTurnstileToken(''),
+          theme: 'light',
+        });
+      }
+    };
+
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      // Wait for the script to load
+      const interval = setInterval(() => {
+        if (window.turnstile) {
+          clearInterval(interval);
+          renderWidget();
+        }
+      }, 100);
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!turnstileToken) {
+      setError('Please complete the verification check.');
+      return;
+    }
     setIsSubmitting(true);
     setError('');
 
@@ -51,6 +94,7 @@ export default function ContactForm() {
           message: formData.get('message'),
           _subject: `New Consultation Request from ${formData.get('name')} - ${formData.get('company')}`,
           _template: 'table',
+          'cf-turnstile-response': turnstileToken,
         }),
       });
 
@@ -196,6 +240,8 @@ export default function ContactForm() {
             className={`${inputClasses} resize-y min-h-[110px]`}
           />
         </div>
+
+        <div ref={turnstileRef} className="mb-5" />
 
         {error && (
           <div className="mb-4 p-3 bg-red-900/30 border border-red-500/30 rounded-lg text-red-300 text-sm">
