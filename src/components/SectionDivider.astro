@@ -19,7 +19,7 @@ const { type = 'slant', fillColor = '#FAFAF7', bgColor = 'transparent', flip = f
 )}
 
 {type === 'slant' && (
-  <div class={`w-full overflow-hidden leading-[0]`} style={`background-color: ${bgColor}`} aria-hidden="true">
+  <div class={`w-full overflow-hidden leading-[0] -mb-px`} style={`background-color: ${bgColor}`} aria-hidden="true">
     <svg viewBox="0 0 1440 48" preserveAspectRatio="none" class={`w-full h-[32px] md:h-[48px] block ${flip ? 'scale-x-[-1]' : ''}`}>
       <polygon points="0,48 1440,0 1440,48" fill={fillColor}></polygon>
     </svg>
@@ -27,7 +27,7 @@ const { type = 'slant', fillColor = '#FAFAF7', bgColor = 'transparent', flip = f
 )}
 
 {type === 'curve' && (
-  <div class={`w-full overflow-hidden leading-[0]`} style={`background-color: ${bgColor}`} aria-hidden="true">
+  <div class={`w-full overflow-hidden leading-[0] -mb-px`} style={`background-color: ${bgColor}`} aria-hidden="true">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-[40px] md:h-[60px] block">
       <path d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z" fill={fillColor}></path>
     </svg>
